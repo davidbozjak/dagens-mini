@@ -97,10 +97,10 @@
 
 <button id="validateBtn">Validate</button>
 
-<div id="clues">
-    <h3>Horizotnal</h3>
+<div id="Ledtrådar">
+    <h3>Vågrätt</h3>
     <ul id="horizontalClueList"></ul>
-    <h3>Vertical</h3>
+    <h3>Lodrätt</h3>
     <ul id="verticalClueList"></ul>
 </div>
 
@@ -112,46 +112,50 @@ const crossword = {
 	cols: 10, 
 	rows: 10, 
 solution: [ 
-		[null, "9", null, null, "19", "15", null, "12", null, null, ],
-		["13", "p", "j", "u", "c", "k", "2", "v", null, null, ],
-		["10", "r", "e", "n", null, "25", "d", "o", "7", null, ],
-		["17", "ö", "18", "5", "3", "c", "e", "l", "l", null, ],
-		["6", "j", "ä", "r", "n", null, "c", "t", "u", null, ],
-		["20", "s", "4", "i", "r", "a", "k", "24", "r", null, ],
-		[null, "14", "e", "k", "8", "k", "a", "m", null, null, ],
-		[null, "26", "n", "1", "b", "o", "r", "å", "s", null, ],
-		[null, null, "11", "r", "a", "i", "d", "e", "r", null, ],
+		[null, "24", "12", "25", "27", null, null, null, null, null, ],
+		["14", "m", "ö", "r", "k", null, "3", null, "2", null, ],
+		[null, "10", "g", "15", "19", "17", "c", "4", "b", null, ],
+		["11", "n", "a", "s", "h", null, "o", "c", "r", null, ],
+		["28", "ä", "9", "u", "6", null, "r", "h", "e", null, ],
+		[null, "s", "s", "n", "s", "1", "t", "i", "e", null, ],
+		["8", "a", "t", "o", "m", null, "a", "l", "23", null, ],
+		[null, "13", "y", "7", "e", "20", "n", "e", "j", null, ],
+		["18", "y", "x", "5", "d", "n", "a", "29", "a", null, ],
 		[null, null, null, null, null, null, null, null, null, null, ],
 	],
 horizontalClues: [
-{ number: 1, clue: "känd textilstad" }, 
-{ number: 3, clue: "livets minsta enhet" }, 
-{ number: 4, clue: "land vid Eufrat" }, 
-{ number: 6, clue: "viktigaste konstruktionsmetallen" }, 
-{ number: 8, clue: "hårredskap" }, 
-{ number: 10, clue: "samiskt dragdjur" }, 
-{ number: 11, clue: "cylonskt jaktplan" }, 
-{ number: 13, clue: "skor med äldre slangstatus" }, 
-{ number: 14, clue: "lövträd med ekollon" }, 
-{ number: 17, clue: "sista bokstaven i alfabetet" }, 
-{ number: 20, clue: "slingrig bokstav" }, 
-{ number: 2, clue: "halva w" }, 
-{ number: 24, clue: "viktigt ljud i motorer" }, 
-{ number: 26, clue: "bokstav i november" }, 
+{ number: 1, clue: "kejserligt jaktplan" }, 
+{ number: 4, clue: "kommer efter a" }, 
+{ number: 5, clue: "arvsmolekyl" }, 
+{ number: 7, clue: "sveriges vanligaste vokal" }, 
+{ number: 8, clue: "materiens byggsten" }, 
+{ number: 9, clue: "vokalen mellan t och v" }, 
+{ number: 10, clue: "bokstav i godis" }, 
+{ number: 11, clue: "nobelpristagare i ekonomi" }, 
+{ number: 13, clue: "sista vanliga vokalen" }, 
+{ number: 14, clue: "Motsats till ljus" }, 
+{ number: 17, clue: "vanlig i engelsk stavning" }, 
+{ number: 18, clue: "hugger ved" }, 
+{ number: 20, clue: "motsats till ja" }, 
+{ number: 28, clue: "vokalen före ö" }, 
+{ number: 29, clue: "först ut i alfabetet" }, 
 ],  
 verticalClues: [
-{ number: 2, clue: "sci-fi detektiv i Blade Runner" }, 
-{ number: 5, clue: "slipper titta på prislappen" }, 
-{ number: 7, clue: "telefon i vardagstal" }, 
-{ number: 9, clue: "betalning med lätt smärta" }, 
-{ number: 12, clue: "spänningsenhet" }, 
-{ number: 15, clue: "första bokstaven i kung" }, 
-{ number: 4, clue: "barrväxt med bär" }, 
-{ number: 18, clue: "finns i räka" }, 
-{ number: 19, clue: "vanlig i engelsk stavning" }, 
-{ number: 1, clue: "bokstav som många skorr" }, 
-{ number: 3, clue: "identifierar rätt rad i listan" }, 
-{ number: 25, clue: "gillar engelska ord" }, 
+{ number: 2, clue: "by i Midgård" }, 
+{ number: 3, clue: "sci-fi AI i Halo" }, 
+{ number: 4, clue: "långsmalt land i Sydamerika" }, 
+{ number: 6, clue: "arbetar med metall" }, 
+{ number: 9, clue: "flod till dödsriket" }, 
+{ number: 10, clue: "luktorgan" }, 
+{ number: 12, clue: "synorgan" }, 
+{ number: 13, clue: "sista vanliga vokalen" }, 
+{ number: 15, clue: "ai för musikskapande" }, 
+{ number: 19, clue: "gömmer sig i hej" }, 
+{ number: 20, clue: "först i nej" }, 
+{ number: 23, clue: "positiv till förslaget" }, 
+{ number: 24, clue: "mått för lite längre saker" }, 
+{ number: 25, clue: "bokstav som många skorr" }, 
+{ number: 27, clue: "först i kaffe" }, 
 ]
 };
 
