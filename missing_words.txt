@@ -1,5 +1,6 @@
 ssns
-rheuko
+rh
+euko
 lr
 rg
 rn
