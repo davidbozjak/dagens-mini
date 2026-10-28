@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily SE Mini Thursday, 2026-10-29</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        max-width: 600px;
+        margin: auto;
+    }
+
+    #grid {
+        display: grid;
+        grid-template-columns: repeat(10, 40px);
+        gap: 4px;
+        justify-content: center;
+    }
+
+    .cell {
+        width: 40px;
+        height: 40px;
+        border: 1px solid #aaa;
+        text-align: center;
+        font-size: 22px;
+        position: relative;
+    }
+
+    .cell input {
+        width: 90%;
+        height: 90%;
+        border: none;
+        text-align: center;
+        font-size: 22px;
+    }
+
+    .clueBox {
+        width: 40px;
+        height: 40px;
+        background: #e0e0e0;
+        font-size: 16px;
+        display: flex;
+        align-items: center;   /* vertical centering */
+        justify-content: center; /* horizontal centering */
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-bottom-right-radius: 6px;
+    }
+
+    .transparent {
+        background: none;
+        border: none;
+    }
+
+    #validateBtn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 18px;
+    }
+
+    .correct {
+        background-color: #cce6ff !important; /* light blue */
+    }
+
+    .incorrect {
+        background-color: #ffcccc !important; /* light red */
+    }
+
+    #clues {
+        margin-top: 30px;
+    }
+
+    @media (max-width: 480px) {
+        #grid {
+            grid-template-columns: repeat(10, 32px);
+        }
+        .cell {
+            width: 32px;
+            height: 32px;
+        }
+        .cell input {
+            font-size: 18px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<h2>Daily SE Mini Thursday, 2026-10-29</h2>
+
+<div id="grid"></div>
+
+<button id="validateBtn">Validate</button>
+
+<div id="clues">
+    <h3>Horizotnal</h3>
+    <ul id="horizontalClueList"></ul>
+    <h3>Vertical</h3>
+    <ul id="verticalClueList"></ul>
+</div>
+
+<script>
+// ------------------------------
+// Crossword Data Structure
+// ------------------------------
+const crossword = {
+	cols: 10, 
+	rows: 10, 
+solution: [ 
+		[null, "9", null, null, "19", "15", null, "12", null, null, ],
+		["13", "p", "j", "u", "c", "k", "2", "v", null, null, ],
+		["10", "r", "e", "n", null, "25", "d", "o", "7", null, ],
+		["17", "ö", "18", "5", "3", "c", "e", "l", "l", null, ],
+		["6", "j", "ä", "r", "n", null, "c", "t", "u", null, ],
+		["20", "s", "4", "i", "r", "a", "k", "24", "r", null, ],
+		[null, "14", "e", "k", "8", "k", "a", "m", null, null, ],
+		[null, "26", "n", "1", "b", "o", "r", "å", "s", null, ],
+		[null, null, "11", "r", "a", "i", "d", "e", "r", null, ],
+		[null, null, null, null, null, null, null, null, null, null, ],
+	],
+horizontalClues: [
+{ number: 1, clue: "känd textilstad" }, 
+{ number: 3, clue: "livets minsta enhet" }, 
+{ number: 4, clue: "land vid Eufrat" }, 
+{ number: 6, clue: "viktigaste konstruktionsmetallen" }, 
+{ number: 8, clue: "hårredskap" }, 
+{ number: 10, clue: "samiskt dragdjur" }, 
+{ number: 11, clue: "cylonskt jaktplan" }, 
+{ number: 13, clue: "skor med äldre slangstatus" }, 
+{ number: 14, clue: "lövträd med ekollon" }, 
+{ number: 17, clue: "sista bokstaven i alfabetet" }, 
+{ number: 20, clue: "slingrig bokstav" }, 
+{ number: 2, clue: "halva w" }, 
+{ number: 24, clue: "viktigt ljud i motorer" }, 
+{ number: 26, clue: "bokstav i november" }, 
+],  
+verticalClues: [
+{ number: 2, clue: "sci-fi detektiv i Blade Runner" }, 
+{ number: 5, clue: "slipper titta på prislappen" }, 
+{ number: 7, clue: "telefon i vardagstal" }, 
+{ number: 9, clue: "betalning med lätt smärta" }, 
+{ number: 12, clue: "spänningsenhet" }, 
+{ number: 15, clue: "första bokstaven i kung" }, 
+{ number: 4, clue: "barrväxt med bär" }, 
+{ number: 18, clue: "finns i räka" }, 
+{ number: 19, clue: "vanlig i engelsk stavning" }, 
+{ number: 1, clue: "bokstav som många skorr" }, 
+{ number: 3, clue: "identifierar rätt rad i listan" }, 
+{ number: 25, clue: "gillar engelska ord" }, 
+]
+};
+
+// ------------------------------
+// Build the grid
+// ------------------------------
+const grid = document.getElementById("grid");
+
+for (let r = 0; r < crossword.rows; r++) {
+    for (let c = 0; c < crossword.cols; c++) {
+        const cell = document.createElement("div");
+        cell.classList.add("cell");
+
+        let sol_content = crossword.solution[r][c];
+
+        if (sol_content === null) {
+            cell.classList.add("transparent");
+        }
+        else if (isNumber(sol_content)) {
+            const clueBox = document.createElement("div");
+            clueBox.classList.add("clueBox");
+            clueBox.textContent = sol_content;
+            cell.appendChild(clueBox);
+        } else {
+            const input = document.createElement("input");
+            input.maxLength = 1;
+            input.dataset.row = r;
+            input.dataset.col = c;
+            cell.appendChild(input);
+        }
+
+        grid.appendChild(cell);
+    }
+}
+
+// ------------------------------
+// Display clues
+// ------------------------------
+const horizontalClueList = document.getElementById("horizontalClueList");
+crossword.horizontalClues.forEach(cl => {
+    const li = document.createElement("li");
+    li.textContent = `${cl.number}: ${cl.clue}`;
+    horizontalClueList.appendChild(li);
+});
+
+const verticalClueList = document.getElementById("verticalClueList");
+crossword.verticalClues.forEach(cl => {
+    const li = document.createElement("li");
+    li.textContent = `${cl.number}: ${cl.clue}`;
+    verticalClueList.appendChild(li);
+});
+
+// ------------------------------
+// Validation logic
+// ------------------------------
+document.getElementById("validateBtn").addEventListener("click", () => {
+    const inputs = document.querySelectorAll(".cell input");
+
+    inputs.forEach(input => {
+        const r = input.dataset.row;
+        const c = input.dataset.col;
+        const correct = crossword.solution[r][c].toUpperCase();
+
+        if (input.value != "") {
+            if (input.value.toUpperCase() === correct) {
+                input.classList.remove("incorrect");
+                input.classList.add("correct");
+            } else {
+                input.classList.remove("correct");
+                input.classList.add("incorrect");
+            }
+        }
+    });
+});
+
+function isNumber(str){
+    const tryNum = Number(str);
+    return !isNaN(tryNum);
+}
+</script>
+
+</body>
+</html>
