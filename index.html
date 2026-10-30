@@ -87,6 +87,90 @@
             font-size: 18px;
         }
     }
+
+    .toolbar {
+        margin-bottom: 12px;
+    }
+
+    .toggle-button {
+        background: #475569;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 16px;
+        cursor: pointer;
+    }
+
+    .component-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        overflow: hidden;
+
+        transition:
+            max-height 0.3s ease,
+            opacity 0.3s ease;
+    }
+
+    .component-list.collapsed {
+        max-height: 0;
+        opacity: 0;
+    }
+
+    .component-list:not(.collapsed) {
+        max-height: 1000px;
+        opacity: 1;
+    }
+
+    .submit-component {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        padding: 10px 16px;
+
+        background: white;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+    }
+
+    .submit-content {
+        flex: 1;
+        min-width: 0;
+
+        color: #334155;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .secondary {
+        color: #64748b;
+    }
+
+    .submit-button {
+        flex-shrink: 0;
+
+        background: #2563eb;
+        color: white;
+
+        border: none;
+        border-radius: 6px;
+
+        padding: 8px 14px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .submit-button:hover {
+        background: #1d4ed8;
+    }
+
+    .submit-button:disabled {
+        background: #94a3b8;
+        cursor: not-allowed;
+    }
 </style>
 </head>
 <body>
@@ -104,54 +188,70 @@
     <ul id="verticalClueList"></ul>
 </div>
 
+<div class="toolbar">
+    <button id="toggleButton" class="toggle-button">
+        Show AI Generated Clues
+    </button>
+</div>
+
+<div id="aiGenClueList" class="component-list collapsed"></div>
+
 <script>
 // ------------------------------
 // Crossword Data Structure
 // ------------------------------
-const crossword = {
-	cols: 10, 
+    const crossword = {
+        	cols: 10, 
 	rows: 10, 
 solution: [ 
-		[null, null, null, "15", null, null, "9", null, null, null, ],
-		[null, "11", "t", "h", "a", "r", "p", "12", null, null, ],
-		[null, "10", "r", "u", "n", "w", "a", "y", "5", null, ],
-		["16", "y", "o", "d", "a", "2", "v", "x", "b", null, ],
-		["24", "i", "7", "8", "ö", "r", "a", "17", "j", null, ],
-		[null, "6", "e", "c", "h", "o", null, "14", "o", null, ],
-		["21", "t", null, "20", "1", "b", "o", "h", "r", null, ],
-		["4", "v", "a", "c", "c", "i", "n", "18", "n", null, ],
-		[null, "3", "p", "a", "y", "n", "e", null, null, null, ],
+		[null, null, null, null, null, null, null, "3", null, null, ],
+		[null, null, null, null, null, null, "7", "p", "2", null, ],
+		[null, null, null, null, "20", "17", "j", "i", "t", null, ],
+		[null, null, "19", "4", "j", "o", "o", "n", "a", null, ],
+		[null, "6", "ö", "g", "a", "22", "u", "s", "n", null, ],
+		["5", "f", "u", "l", "l", "10", "l", "i", "i", null, ],
+		["13", "i", "1", "a", "n", "d", "e", "r", "s", null, ],
+		["15", "l", "9", "s", "e", "n", "12", "18", null, null, ],
+		[null, null, null, "11", "t", "a", "n", "d", null, null, ],
 		[null, null, null, null, null, null, null, null, null, null, ],
 	],
-horizontalClues: [
-{ number: 1, clue: "dansk atomfysiker" }, 
-{ number: 3, clue: "förklarade stjärnors sammansättning" }, 
-{ number: 4, clue: "skydd mot sjukdom" }, 
-{ number: 6, clue: "marvelhjältinna som imiterar" }, 
-{ number: 8, clue: "hörselorgan" }, 
-{ number: 10, clue: "ai för videoeffekter" }, 
-{ number: 11, clue: "kartlade havsbottnen" }, 
-{ number: 14, clue: "vokal formad som sig själv" }, 
-{ number: 16, clue: "sci-fi jedimästare" }, 
-{ number: 17, clue: "börjar ordet ja" }, 
-{ number: 18, clue: "först i nej" }, 
-{ number: 21, clue: "finns i te" }, 
-{ number: 24, clue: "liten vokal med prick" }, 
+        horizontalClues: [
+{ number: 1, clue: "varje julafton på tv" }, 
+{ number: 4, clue: "polis i Kepler-böckerna" }, 
+{ number: 5, clue: "motsats till tom" }, 
+{ number: 6, clue: "synorgan" }, 
+{ number: 7, clue: "början på pengar" }, 
+{ number: 9, clue: "nobelpristagare inom utvecklingsekonomi" }, 
+{ number: 10, clue: "Romerskt för tjugoett minus tjugo" }, 
+{ number: 11, clue: "finns i munnen" }, 
+{ number: 13, clue: "ser ut som ett utrop med prick" }, 
+{ number: 15, clue: "finns mitt i ölglas" }, 
+{ number: 17, clue: "Snabb liten shop för kodare" }, 
+{ number: 22, clue: "Förkortning som kan stå för en amerikansk marina" }, 
 ],  
 verticalClues: [
-{ number: 2, clue: "assistenten som aldrig får bilen" }, 
-{ number: 5, clue: "sjöng Waterloo och mycket annat" }, 
-{ number: 6, clue: "bildskärm i vardagsrum" }, 
-{ number: 7, clue: "vokalernas arbetshäst" }, 
-{ number: 8, clue: "vanlig i engelsk stavning" }, 
-{ number: 9, clue: "flaska i slang" }, 
-{ number: 10, clue: "kinesisk språkmodell" }, 
-{ number: 12, clue: "hugger ved" }, 
-{ number: 14, clue: "bokstav i hus" }, 
-{ number: 15, clue: "kroppens yttre lager" }, 
-{ number: 20, clue: "när exakthet känns överskattat" }, 
+{ number: 2, clue: "halvalv i Dragonlance" }, 
+{ number: 3, clue: "insekt med skrämmande käkar" }, 
+{ number: 4, clue: "dricker vatten ur" }, 
+{ number: 6, clue: "jämnar ut metall" }, 
+{ number: 7, clue: "energienhet" }, 
+{ number: 10, clue: "arvsmolekyl" }, 
+{ number: 12, clue: "bokstav i november" }, 
+{ number: 17, clue: "vokal formad som sig själv" }, 
+{ number: 18, clue: "kommer efter c" }, 
+{ number: 19, clue: "Sällsynt par på tangentbordet, börjar med en ö" }, 
+{ number: 20, clue: "Accessväg för mysterier på nätet" }, 
+],
+        ai_gen_clues: [
+{ key: "öu", clue: "Sällsynt par på tangentbordet, börjar med en ö", confidence: "55" }, 
+{ key: "jalnet", clue: "Accessväg för mysterier på nätet", confidence: "85" }, 
+{ key: "jit", clue: "Snabb liten shop för kodare", confidence: "75" }, 
+{ key: "usn", clue: "Förkortning som kan stå för en amerikansk marina", confidence: "70" }, 
+{ key: "lii", clue: "Romerskt för tjugoett minus tjugo", confidence: "85" }, 
 ]
-};
+    };
+
+    let isAIGenSectionExpanded = false;
 
 // ------------------------------
 // Build the grid
@@ -201,6 +301,90 @@ crossword.verticalClues.forEach(cl => {
     li.textContent = `${cl.number}: ${cl.clue}`;
     verticalClueList.appendChild(li);
 });
+
+// ------------------------------
+// AI Generated Clues section
+// ------------------------------
+
+    const container = document.getElementById("aiGenClueList");
+    const toggleButton = document.getElementById("toggleButton");
+
+    function renderItems() {
+        container.innerHTML = "";
+
+        crossword.ai_gen_clues.forEach(item => {
+            const component = document.createElement("div");
+
+            component.className = "submit-component";
+
+            component.innerHTML = `
+                <div class="submit-content">
+                    <b>${item.key}:</b>
+                    ${item.clue}
+                    <span class="secondary">(${item.confidence})</span>
+                </div>
+
+                <button
+                    class="submit-button"
+                    type="submit">
+                    Godkänn
+                </button>
+            `;
+
+            const button = component.querySelector(".submit-button");
+
+            button.addEventListener("click", () => {
+                submitClueToDB(button, item);
+            });
+
+            container.appendChild(component);
+        });
+    }
+
+    function updateExpandedState() {
+        container.classList.toggle("collapsed", !isAIGenSectionExpanded);
+
+        toggleButton.textContent =
+            isAIGenSectionExpanded ? "Stäng": "Visa AI genererade ledtrådar";
+    }
+
+    toggleButton.addEventListener("click", () => {
+        isAIGenSectionExpanded = !isAIGenSectionExpanded;
+        updateExpandedState();
+    });
+
+    async function submitClueToDB(button, item) {
+        try {
+            button.disabled = true;
+            button.textContent = "...";
+
+            const response = await fetch("https://sheetdb.io/api/v1/2ugi4z3mi964f", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    key: item.key,
+                    clue: item.clue,
+                    aI_gen_confidence: item.confidence
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error("Request failed");
+            }
+
+            button.textContent = "Inskickad";
+        }
+        catch (error) {
+            console.error(error);
+
+            button.textContent = "Err";
+        }
+    }
+
+    renderItems();
+    updateExpandedState();
 
 // ------------------------------
 // Validation logic
