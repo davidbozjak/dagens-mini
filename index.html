@@ -2,54 +2,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Daily SE Mini Saturday, 2026-10-31</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Daily SE Mini Saturday, 2026-10-31</title>
 
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        padding: 20px;
-        max-width: 600px;
-        margin: auto;
+    <style>
+    :root {
+        --grid-size: min(90vw, 520px);
+        --cell-size: calc(var(--grid-size) / 10);
+
+        --radius: 12px;
+
+        --blue: #2563eb;
+        --blue-dark: #1d4ed8;
+        --blue-light: #dbeafe;
+
+        --border: #cbd5e1;
+        --text: #1e293b;
+        --text-secondary: #64748b;
+
+        --success: #0cff0c1a;
+        --error: #fee2e2;
     }
 
+    body {
+        font-family:
+            Inter,
+            system-ui,
+            -apple-system,
+            BlinkMacSystemFont,
+            sans-serif;
+
+        background: #f8fafc;
+        color: var(--text);
+
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 24px 16px;
+
+        line-height: 1.5;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 24px;
+        font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+
+    h3 {
+        margin-top: 1.5rem;
+    }
+
+    /* Crossword */
+
     #grid {
+        --cell-size: calc(min(90vw, 520px) / var(--cols));
+
         display: grid;
-        grid-template-columns: repeat(10, 40px);
-        gap: 4px;
-        justify-content: center;
+        grid-template-columns: repeat(var(--cols), var(--cell-size));
+
+        width: max-content;
+        margin: 0 auto;
+
+        padding: 6px;
+        gap: 2px;
+
+        background: var(--border);
+        border-radius: var(--radius);
     }
 
     .cell {
-        width: 40px;
-        height: 40px;
-        border: 1px solid #aaa;
-        text-align: center;
-        font-size: 22px;
+        aspect-ratio: 1;
+
+        background: white;
+        border: 1px solid var(--border);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
         position: relative;
+        box-sizing: border-box;
     }
 
     .cell input {
-        width: 90%;
-        height: 90%;
+        width: 100%;
+        height: 100%;
+
         border: none;
+        outline: none;
+
+        background: transparent;
+
         text-align: center;
-        font-size: 22px;
+        text-transform: uppercase;
+
+        font-size: clamp(16px, 4vw, 26px);
+        font-weight: 600;
     }
 
-    .clueBox {
-        width: 40px;
-        height: 40px;
-        background: #e0e0e0;
-        font-size: 16px;
-        display: flex;
-        align-items: center;   /* vertical centering */
-        justify-content: center; /* horizontal centering */
-        position: absolute;
-        top: 0;
-        left: 0;
-        border-bottom-right-radius: 6px;
+    .clue-cell {
+        background: var(--blue-light);
+        color: #1e3a8a;
+
+        font-size: clamp(14px, 3vw, 22px);
+        font-weight: 700;
     }
 
     .transparent {
@@ -57,48 +114,111 @@
         border: none;
     }
 
+    .cell input.correct {
+        background: var(--success);
+    }
+
+    .cell input.incorrect {
+        background: var(--error);
+    }
+
+    /* Clues */
+
+    #Ledtrådar {
+        margin-top: 32px;
+        padding: 20px;
+
+        background: white;
+        border-radius: var(--radius);
+
+        box-shadow: 0 1px 3px rgba(0, 0, 0, .08);
+    }
+
+    #Ledtrådar ul {
+        padding-left: 20px;
+    }
+
+    #Ledtrådar li {
+        margin-bottom: 8px;
+    }
+
+    /* Buttons */
+
+    #validateBtn,
+    .toggle-button,
+    .submit-button {
+        border: none;
+        cursor: pointer;
+
+        transition:
+            background .2s ease,
+            transform .15s ease;
+    }
+
+    #validateBtn:hover,
+    .toggle-button:hover,
+    .submit-button:hover {
+        transform: translateY(-1px);
+    }
+
+    #validateBtn:active,
+    .toggle-button:active,
+    .submit-button:active {
+        transform: translateY(0);
+    }
+
     #validateBtn {
-        margin-top: 20px;
-        padding: 10px 20px;
-        font-size: 18px;
+        display: block;
+
+        margin: 24px auto;
+        padding: 12px 24px;
+
+        background: var(--blue);
+        color: white;
+
+        border-radius: 10px;
+
+        font-size: 16px;
+        font-weight: 600;
     }
 
-    .correct {
-        background-color: #cce6ff !important; /* light blue */
+    .toggle-button,
+    .submit-button {
+        background: var(--blue);
+        color: white;
     }
 
-    .incorrect {
-        background-color: #ffcccc !important; /* light red */
+    .toggle-button:hover,
+    .submit-button:hover {
+        background: var(--blue-dark);
     }
 
-    #clues {
-        margin-top: 30px;
+    .submit-button {
+        flex-shrink: 0;
+
+        padding: 8px 14px;
+
+        border-radius: 6px;
+        font-weight: 600;
     }
 
-    @media (max-width: 480px) {
-        #grid {
-            grid-template-columns: repeat(10, 32px);
-        }
-        .cell {
-            width: 32px;
-            height: 32px;
-        }
-        .cell input {
-            font-size: 18px;
-        }
+    .submit-button:disabled {
+        background: #94a3b8;
+        cursor: not-allowed;
     }
+
+    /* Accessibility */
+
+    input:focus,
+    button:focus-visible {
+        outline: 3px solid #60a5fa;
+        outline-offset: 2px;
+    }
+
+    /* AI Section */
 
     .toolbar {
         margin-bottom: 12px;
-    }
-
-    .toggle-button {
-        background: #475569;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        padding: 10px 16px;
-        cursor: pointer;
     }
 
     .component-list {
@@ -108,9 +228,12 @@
 
         overflow: hidden;
 
+        max-height: 1000px;
+        opacity: 1;
+
         transition:
-            max-height 0.3s ease,
-            opacity 0.3s ease;
+            max-height .3s ease,
+            opacity .3s ease;
     }
 
     .component-list.collapsed {
@@ -118,60 +241,33 @@
         opacity: 0;
     }
 
-    .component-list:not(.collapsed) {
-        max-height: 1000px;
-        opacity: 1;
-    }
-
     .submit-component {
         display: flex;
-        align-items: center;
-        gap: 16px;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 12px;
 
-        padding: 10px 16px;
+        padding: 14px;
 
         background: white;
+
         border: 1px solid #e2e8f0;
-        border-radius: 8px;
+        border-radius: var(--radius);
+
+        box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
     }
 
     .submit-content {
-        flex: 1;
-        min-width: 0;
+        flex: 1 1 250px;
 
-        color: #334155;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        overflow-wrap: anywhere;
+        word-break: break-word;
     }
 
     .secondary {
-        color: #64748b;
+        color: var(--text-secondary);
     }
-
-    .submit-button {
-        flex-shrink: 0;
-
-        background: #2563eb;
-        color: white;
-
-        border: none;
-        border-radius: 6px;
-
-        padding: 8px 14px;
-        font-weight: 600;
-        cursor: pointer;
-    }
-
-    .submit-button:hover {
-        background: #1d4ed8;
-    }
-
-    .submit-button:disabled {
-        background: #94a3b8;
-        cursor: not-allowed;
-    }
-</style>
+    </style>
 </head>
 <body>
 
@@ -204,50 +300,61 @@
         	cols: 10, 
 	rows: 10, 
 solution: [ 
-		[null, null, null, null, null, null, null, "3", null, null, ],
-		[null, null, null, null, null, null, "7", "p", "2", null, ],
-		[null, null, null, null, "20", "17", "j", "i", "t", null, ],
-		[null, null, "19", "4", "j", "o", "o", "n", "a", null, ],
-		[null, "6", "ö", "g", "a", "22", "u", "s", "n", null, ],
-		["5", "f", "u", "l", "l", "10", "l", "i", "i", null, ],
-		["13", "i", "1", "a", "n", "d", "e", "r", "s", null, ],
-		["15", "l", "9", "s", "e", "n", "12", "18", null, null, ],
-		[null, null, null, "11", "t", "a", "n", "d", null, null, ],
+		[null, "27", "15", "26", "10", "32", null, null, null, null, ],
+		["11", "r", "a", "d", "o", "n", "5", "21", "20", null, ],
+		[null, "13", "17", "6", "b", "i", "l", "b", "o", null, ],
+		["12", "b", "ö", "r", "s", "2", "j", "8", "7", null, ],
+		["28", "r", "18", "e", "3", "b", "u", "f", "f", null, ],
+		["30", "i", "i", "n", "l", "j", "s", "i", "i", null, ],
+		["14", "e", "n", "23", "e", "ö", "33", "l", "j", null, ],
+		["29", "f", "4", "c", "i", "r", "i", "19", "i", null, ],
+		[null, "1", "k", "l", "a", "n", "t", null, null, null, ],
 		[null, null, null, null, null, null, null, null, null, null, ],
 	],
         horizontalClues: [
-{ number: 1, clue: "varje julafton på tv" }, 
-{ number: 4, clue: "polis i Kepler-böckerna" }, 
-{ number: 5, clue: "motsats till tom" }, 
-{ number: 6, clue: "synorgan" }, 
-{ number: 7, clue: "början på pengar" }, 
-{ number: 9, clue: "nobelpristagare inom utvecklingsekonomi" }, 
-{ number: 10, clue: "Romerskt för tjugoett minus tjugo" }, 
-{ number: 11, clue: "finns i munnen" }, 
-{ number: 13, clue: "ser ut som ett utrop med prick" }, 
-{ number: 15, clue: "finns mitt i ölglas" }, 
-{ number: 17, clue: "Snabb liten shop för kodare" }, 
-{ number: 22, clue: "Förkortning som kan stå för en amerikansk marina" }, 
+{ number: 1, clue: "person med kreativ relation till misstag" }, 
+{ number: 2, clue: "början på ja" }, 
+{ number: 3, clue: "när favoritsaken blir bättre" }, 
+{ number: 4, clue: "prinsessa i Witcher" }, 
+{ number: 6, clue: "hobbit som fann ringen" }, 
+{ number: 11, clue: "radioaktiv ädelgas" }, 
+{ number: 12, clue: "marknadsplats för aktier" }, 
+{ number: 14, clue: "barrväxt med bär" }, 
+{ number: 18, clue: "vokalernas arbetshäst" }, 
+{ number: 19, clue: "ser ut som ett utrop med prick" }, 
+{ number: 23, clue: "En sällsynt ö som bara består av två bokstäver med prick." }, 
+{ number: 28, clue: "viktigt ljud i motorer" }, 
+{ number: 29, clue: "bokstav i fika" }, 
+{ number: 30, clue: "Ovanlig kombination som skulle kunna vara ett kattnamn." }, 
+{ number: 33, clue: "Bokstavskombination som börjar ord som ’ljus’" }, 
 ],  
 verticalClues: [
-{ number: 2, clue: "halvalv i Dragonlance" }, 
-{ number: 3, clue: "insekt med skrämmande käkar" }, 
-{ number: 4, clue: "dricker vatten ur" }, 
-{ number: 6, clue: "jämnar ut metall" }, 
-{ number: 7, clue: "energienhet" }, 
-{ number: 10, clue: "arvsmolekyl" }, 
-{ number: 12, clue: "bokstav i november" }, 
-{ number: 17, clue: "vokal formad som sig själv" }, 
-{ number: 18, clue: "kommer efter c" }, 
-{ number: 19, clue: "Sällsynt par på tangentbordet, börjar med en ö" }, 
-{ number: 20, clue: "Accessväg för mysterier på nätet" }, 
+{ number: 2, clue: "tennislegend med eget kalsongimperium" }, 
+{ number: 3, clue: "sci-fi prinsessa från Star Wars" }, 
+{ number: 4, clue: "första bokstaven i kung" }, 
+{ number: 5, clue: "inte direkt goth" }, 
+{ number: 6, clue: "samiskt dragdjur" }, 
+{ number: 7, clue: "östat i Stilla havet" }, 
+{ number: 8, clue: "jämnar ut metall" }, 
+{ number: 10, clue: "något man helst inte missar" }, 
+{ number: 13, clue: "ett dokument ingen läser noga" }, 
+{ number: 15, clue: "alfabetets etta" }, 
+{ number: 17, clue: "sista bokstaven i alfabetet" }, 
+{ number: 18, clue: "motsats till ut" }, 
+{ number: 20, clue: "vokal formad som sig själv" }, 
+{ number: 21, clue: "tvåa bland bokstäverna" }, 
+{ number: 23, clue: "vanligt på restaurangnotan" }, 
+{ number: 26, clue: "kommer efter c" }, 
+{ number: 27, clue: "bokstav som många skorr" }, 
+{ number: 32, clue: "Andraperson plural i vardagligt tal" }, 
+{ number: 33, clue: "Kortpronomen för något obestämt i engelskan" }, 
 ],
         ai_gen_clues: [
-{ key: "öu", clue: "Sällsynt par på tangentbordet, börjar med en ö", confidence: "55" }, 
-{ key: "jalnet", clue: "Accessväg för mysterier på nätet", confidence: "85" }, 
-{ key: "jit", clue: "Snabb liten shop för kodare", confidence: "75" }, 
-{ key: "usn", clue: "Förkortning som kan stå för en amerikansk marina", confidence: "70" }, 
-{ key: "lii", clue: "Romerskt för tjugoett minus tjugo", confidence: "85" }, 
+{ key: "iinljsii", clue: "Ovanlig kombination som skulle kunna vara ett kattnamn.", confidence: "40" }, 
+{ key: "eö", clue: "En sällsynt ö som bara består av två bokstäver med prick.", confidence: "65" }, 
+{ key: "ni", clue: "Andraperson plural i vardagligt tal", confidence: "95" }, 
+{ key: "lj", clue: "Bokstavskombination som börjar ord som ’ljus’", confidence: "90" }, 
+{ key: "it", clue: "Kortpronomen för något obestämt i engelskan", confidence: "90" }, 
 ]
     };
 
@@ -257,6 +364,7 @@ verticalClues: [
 // Build the grid
 // ------------------------------
 const grid = document.getElementById("grid");
+grid.style.setProperty("--cols", 10);
 
 for (let r = 0; r < crossword.rows; r++) {
     for (let c = 0; c < crossword.cols; c++) {
@@ -269,10 +377,8 @@ for (let r = 0; r < crossword.rows; r++) {
             cell.classList.add("transparent");
         }
         else if (isNumber(sol_content)) {
-            const clueBox = document.createElement("div");
-            clueBox.classList.add("clueBox");
-            clueBox.textContent = sol_content;
-            cell.appendChild(clueBox);
+            cell.classList.add("clue-cell");
+            cell.textContent = sol_content;
         } else {
             const input = document.createElement("input");
             input.maxLength = 1;
