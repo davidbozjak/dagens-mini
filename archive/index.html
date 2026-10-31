@@ -164,7 +164,7 @@ async function renderArchive()
     let date = new Date();
 
     const todayString = getFormattedDate(today);
-    await appendPuzzleCard(todayString, "./../index.html");
+    await appendPuzzleCard(todayString, "./../index.html", true);
 
     for (let i = 1, noAllowedMissing = 5; noAllowedMissing > 0; i++) {
 
