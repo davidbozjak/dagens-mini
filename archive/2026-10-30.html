@@ -266,6 +266,42 @@
     .secondary {
         color: var(--text-secondary);
     }
+
+    .archive-link-container {
+        text-align: center;
+        margin: 16px 0 32px;
+    }
+
+    .archive-link {
+        display: inline-block;
+
+        padding: 10px 18px;
+
+        color: var(--blue);
+        background: white;
+
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+
+        font-weight: 600;
+        text-decoration: none;
+
+        transition:
+            background .2s ease,
+            border-color .2s ease,
+            transform .15s ease;
+    }
+
+    .archive-link:hover {
+        background: #f1f5f9;
+        border-color: var(--blue);
+
+        transform: translateY(-1px);
+    }
+
+    .archive-link:active {
+        transform: translateY(0);
+    }
     </style>
 </head>
 <body>
@@ -281,6 +317,12 @@
     <ul id="horizontalClueList"></ul>
     <h3>Lodrätt</h3>
     <ul id="verticalClueList"></ul>
+</div>
+
+<div class="archive-link-container">
+    <a href="./archive/index.html" class="archive-link">
+        📚 Browse Puzzle Archive
+    </a>
 </div>
 
 <div class="toolbar">
@@ -299,65 +341,58 @@
         	cols: 10, 
 	rows: 10, 
 solution: [ 
-		[null, null, "10", "31", "32", "22", "5", "24", "8", null, ],
-		[null, "6", "h", "u", "y", "g", "e", "n", "s", null, ],
-		["12", "b", "ö", "r", "s", "4", "r", "17", "a", null, ],
-		["26", "u", "g", "3", "a", "a", "a", "25", "n", null, ],
-		["21", "d", "7", "n", "13", "u", "g", "23", "d", null, ],
-		[null, "2", "b", "a", "k", "r", "o", "20", "v", null, ],
-		["1", "v", "i", "s", "i", "o", "n", "15", "i", null, ],
-		["27", "å", "o", "h", "r", "r", "16", "u", "k", null, ],
-		["28", "t", "m", "9", "k", "a", "t", "t", null, null, ],
+		[null, null, "12", "13", "15", "16", "3", null, null, null, ],
+		[null, "9", "o", "r", "b", "i", "t", "2", null, null, ],
+		[null, null, "14", "6", "e", "23", "h", "b", null, null, ],
+		[null, "5", "r", "a", "n", "24", "e", "e", "7", null, ],
+		["19", "k", "o", "m", "22", "25", "s", "n", "o", null, ],
+		["20", "n", "11", "p", "å", "26", "e", "i", "n", null, ],
+		["17", "i", "1", "e", "d", "m", "u", "n", "d", null, ],
+		["4", "v", "i", "r", "t", "u", "s", null, null, null, ],
+		[null, "8", "m", "e", "m", "e", null, null, null, null, ],
 		[null, null, null, null, null, null, null, null, null, null, ],
 	],
         horizontalClues: [
-{ number: 1, clue: "android med identitetsfrågor" }, 
-{ number: 2, clue: "Bakpartiets första två bokstäver" }, 
-{ number: 3, clue: "liten batteri" }, 
-{ number: 4, clue: "viktigt ljud i motorer" }, 
-{ number: 6, clue: "astronom och fysiker" }, 
-{ number: 7, clue: "Startbokstaven i ordet 'nej'" }, 
-{ number: 9, clue: "jamande husdjur" }, 
-{ number: 12, clue: "aktiemarknad" }, 
-{ number: 13, clue: "Slutet på 'mugg' eller starten på 'uggla'?" }, 
-{ number: 15, clue: "liten vokal med prick" }, 
-{ number: 16, clue: "Storbritanniens två bokstäver" }, 
-{ number: 17, clue: "alfabetets etta" }, 
-{ number: 20, clue: "första bokstaven i varm" }, 
-{ number: 21, clue: "kommer efter c" }, 
-{ number: 23, clue: "bokstav före e" }, 
-{ number: 25, clue: "först i nej" }, 
-{ number: 26, clue: "Kort bit av 'uggla' på två bokstäver" }, 
-{ number: 27, clue: "En ovanlig kombination av vokaler och konsonanter som ljudar som förvåning" }, 
-{ number: 28, clue: "Symbolen för rättigheterna på en cool uppfinning" }, 
+{ number: 1, clue: "brodern som förrådde familjen" }, 
+{ number: 4, clue: "modets gudom" }, 
+{ number: 5, clue: "havsgudinna med nät" }, 
+{ number: 6, clue: "vokalernas arbetshäst" }, 
+{ number: 8, clue: "bild som vägrar dö" }, 
+{ number: 9, clue: "bana runt himlakropp" }, 
+{ number: 11, clue: "motsats till av" }, 
+{ number: 17, clue: "ser ut som ett utrop med prick" }, 
+{ number: 19, clue: "Uppmaning att närma sig" }, 
+{ number: 20, clue: "Bokstav som ofta inleder 'nej'" }, 
+{ number: 23, clue: "Förkortning för hemoglobin i blodet" }, 
+{ number: 24, clue: "Dubbel vokal i engelska ordet för 'få'" }, 
+{ number: 25, clue: "Vintertäcke på marken" }, 
+{ number: 26, clue: "Kan betyda 'en' på tyska" }, 
 ],  
 verticalClues: [
-{ number: 2, clue: "motsats till torr" }, 
-{ number: 3, clue: "nobelpristagare i ekonomi" }, 
-{ number: 4, clue: "gryningens gudinna" }, 
-{ number: 5, clue: "drakryttare i Alagaësia" }, 
-{ number: 6, clue: "köpintresse" }, 
-{ number: 7, clue: "ekologisk region" }, 
-{ number: 8, clue: "industriföretag från Gästrikland" }, 
-{ number: 10, clue: "nära molnen" }, 
-{ number: 13, clue: "sci-fi kapten på Enterprise" }, 
-{ number: 15, clue: "motsats till in" }, 
-{ number: 16, clue: "korsets favoritbokstav" }, 
-{ number: 22, clue: "först i glass" }, 
-{ number: 24, clue: "bokstav i november" }, 
-{ number: 31, clue: "Den som bestämmer tempot på armen" }, 
-{ number: 32, clue: "Så gör små bubblor i sjön" }, 
+{ number: 1, clue: "Förkortning för något som tillhör mig." }, 
+{ number: 2, clue: "västafrikanskt land" }, 
+{ number: 3, clue: "dödade minotauren" }, 
+{ number: 5, clue: "skär maten" }, 
+{ number: 6, clue: "strömenhet" }, 
+{ number: 7, clue: "motsats till god" }, 
+{ number: 12, clue: "vokal formad som sig själv" }, 
+{ number: 13, clue: "bokstav som många skorr" }, 
+{ number: 14, clue: "lugn och ____" }, 
+{ number: 15, clue: "används för att gå" }, 
+{ number: 16, clue: "liten vokal med prick" }, 
+{ number: 22, clue: "När Å, D, T och M går på rad, vad kan de då bilda?" }, 
+{ number: 26, clue: "Ljud som en ko ger" }, 
 ],
         ai_gen_clues: [
-{ key: "ug", clue: "Kort bit av 'uggla' på två bokstäver", confidence: "70" }, 
-{ key: "åohrr", clue: "En ovanlig kombination av vokaler och konsonanter som ljudar som förvåning", confidence: "70" }, 
-{ key: "tm", clue: "Symbolen för rättigheterna på en cool uppfinning", confidence: "85" }, 
-{ key: "bakro", clue: "Bakpartiets första två bokstäver", confidence: "90" }, 
-{ key: "n", clue: "Startbokstaven i ordet 'nej'", confidence: "95" }, 
-{ key: "ur", clue: "Den som bestämmer tempot på armen", confidence: "85" }, 
-{ key: "ysa", clue: "Så gör små bubblor i sjön", confidence: "90" }, 
-{ key: "ug", clue: "Slutet på 'mugg' eller starten på 'uggla'?", confidence: "85" }, 
-{ key: "uk", clue: "Storbritanniens två bokstäver", confidence: "95" }, 
+{ key: "kom", clue: "Uppmaning att närma sig", confidence: "95" }, 
+{ key: "n", clue: "Bokstav som ofta inleder 'nej'", confidence: "95" }, 
+{ key: "im", clue: "Förkortning för något som tillhör mig.", confidence: "90" }, 
+{ key: "ådtm", clue: "När Å, D, T och M går på rad, vad kan de då bilda?", confidence: "60" }, 
+{ key: "hb", clue: "Förkortning för hemoglobin i blodet", confidence: "95" }, 
+{ key: "ee", clue: "Dubbel vokal i engelska ordet för 'få'", confidence: "75" }, 
+{ key: "sno", clue: "Vintertäcke på marken", confidence: "90" }, 
+{ key: "ein", clue: "Kan betyda 'en' på tyska", confidence: "90" }, 
+{ key: "mue", clue: "Ljud som en ko ger", confidence: "90" }, 
 ]
     };
 
@@ -516,9 +551,40 @@ document.getElementById("validateBtn").addEventListener("click", () => {
             }
         }
     });
+    
+    let all_correct = Array.from(inputs)
+        .every(w => w.classList.contains("correct"));
+
+    if (all_correct)
+    {
+        //todo: add some kind of celebration?
+
+        const storage = loadStorageSet();
+        storage.add("2026-10-30");
+        saveStorageSet(storage);
+    }
 });
 
-function isNumber(str){
+const STORAGE_KEY = "dagens-mini-completed-dates";
+
+function loadStorageSet() {
+    const raw = localStorage.getItem(STORAGE_KEY);
+
+    if (!raw) {
+        return new Set();
+    }
+
+    return new Set(JSON.parse(raw));
+}
+
+function saveStorageSet(set) {
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify([...set])
+    );
+}
+
+function isNumber(str) {
     const tryNum = Number(str);
     return !isNaN(tryNum);
 }
