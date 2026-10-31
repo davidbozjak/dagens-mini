@@ -166,22 +166,27 @@ async function renderArchive()
     const todayString = getFormattedDate(today);
     await appendPuzzleCard(todayString, "./../index.html");
 
-    for (let i = 1; i < 100; i++) {
+    for (let i = 1, noAllowedMissing = 5; noAllowedMissing > 0; i++) {
 
         date.setDate(today.getDate() - i);
 
         const dateString = getFormattedDate(date);
         const puzzleUrl = "./" + dateString + ".html";
         
-        await appendPuzzleCard(dateString, puzzleUrl);
+        let isAvaliable = await puzzleExists(puzzleUrl);
+
+        await appendPuzzleCard(dateString, puzzleUrl, isAvaliable);
+
+        if (!isAvaliable)
+        {
+            noAllowedMissing--;
+        }
     }
 }
 
-async function appendPuzzleCard(dateString, puzzleUrl) 
+function appendPuzzleCard(dateString, puzzleUrl, isAvaliable) 
 {
     let status;
-
-    let isAvaliable = await puzzleExists(puzzleUrl);
 
     if (!isAvaliable)
     {
