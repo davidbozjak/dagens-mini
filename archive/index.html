@@ -158,70 +158,71 @@ const archiveGrid = document.getElementById("archiveGrid");
 
 const completedSet = loadStorageSet();
 
-async function renderArchive() {
+async function renderArchive() 
+{
+    const date = new Date();
+
+    const todayString = getFormattedDate(date);
+    appendPuzzleCard(todayString, "./../index.html");
 
     for (let i = 1; i < 100; i++) {
 
-        const date = new Date();
         date.setDate(date.getDate() - i);
 
-        const yyyy = date.getFullYear();
-        const mm = String(date.getMonth() + 1).padStart(2, "0");
-        const dd = String(date.getDate()).padStart(2, "0");
-
-        const dateString = `${yyyy}-${mm}-${dd}`;
-
-        let status;
-
+        const dateString = getFormattedDate(date);
         const puzzleUrl = "./" + dateString + ".html";
-
-        let avaliable = await puzzleExists(puzzleUrl);
-
-        if (!avaliable)
-        {
-            status = "unavailable";
-        }
-        else
-        {
-            if (completedSet.has(dateString))
-            {
-                status = "completed";
-            }
-            else
-            {
-                status = "uncompleted";
-            }
-        }
-
-        const card = document.createElement("a");
-
-        card.className = `puzzle-card ${status}`;
-
-        if (avaliable) {
-            card.href = `${dateString}.html`;
-        } else {
-            card.removeAttribute("href");
-        }
-
-        card.innerHTML = `
-            <div class="puzzle-title">
-                Daily SE Mini
-            </div>
-
-            <div class="puzzle-date">
-                ${dateString}
-            </div>
-
-            <span class="status-badge status-${status}">
-                ${status.charAt(0).toUpperCase() + status.slice(1)}
-            </span>
-        `;
-
-        archiveGrid.appendChild(card);
+        
+        await appendPuzzleCard(dateString, puzzleUrl);
     }
 }
 
-async function puzzleExists(url) {
+async function appendPuzzleCard(dateString, puzzleUrl) 
+{
+    let status;
+
+    let isAvaliable = await puzzleExists(puzzleUrl);
+
+    if (!isAvaliable)
+    {
+        status = "unavailable";
+    }
+    else
+    {
+        if (completedSet.has(dateString))
+        {
+            status = "completed";
+        }
+        else
+        {
+            status = "uncompleted";
+        }
+    }
+
+    const card = document.createElement("a");
+
+    card.className = `puzzle-card ${status}`;
+
+    if (isAvaliable) {
+        card.href = puzzleUrl;
+    } else {
+        card.removeAttribute("href");
+    }
+
+    card.innerHTML = `
+        <div class="puzzle-title">
+            ${dateString}
+        </div>
+
+        <span class="status-badge status-${status}">
+            ${status.charAt(0).toUpperCase() + status.slice(1)}
+        </span>
+    `;
+
+    archiveGrid.appendChild(card);
+}
+
+async function puzzleExists(url) 
+{
     try {
         const response = await fetch(url, {
             method: "HEAD"
@@ -243,7 +244,19 @@ async function puzzleExists(url) {
     }
 }
 
-function loadStorageSet() {
+function getFormattedDate(date) 
+{
+    const yyyy = date.getFullYear();
+    const mm = String(date.getMonth() + 1).padStart(2, "0");
+    const dd = String(date.getDate()).padStart(2, "0");
+
+    const dateString = `${yyyy}-${mm}-${dd}`;
+
+    return dateString;
+}
+
+function loadStorageSet() 
+{
     const raw = localStorage.getItem(STORAGE_KEY);
 
     if (!raw) {
@@ -253,7 +266,8 @@ function loadStorageSet() {
     return new Set(JSON.parse(raw));
 }
 
-function saveStorageSet(set) {
+function saveStorageSet(set) 
+{
     localStorage.setItem(
         STORAGE_KEY,
         JSON.stringify([...set])
