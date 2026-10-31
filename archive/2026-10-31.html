@@ -266,6 +266,42 @@
     .secondary {
         color: var(--text-secondary);
     }
+
+    .archive-link-container {
+        text-align: center;
+        margin: 16px 0 32px;
+    }
+
+    .archive-link {
+        display: inline-block;
+
+        padding: 10px 18px;
+
+        color: var(--blue);
+        background: white;
+
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+
+        font-weight: 600;
+        text-decoration: none;
+
+        transition:
+            background .2s ease,
+            border-color .2s ease,
+            transform .15s ease;
+    }
+
+    .archive-link:hover {
+        background: #f1f5f9;
+        border-color: var(--blue);
+
+        transform: translateY(-1px);
+    }
+
+    .archive-link:active {
+        transform: translateY(0);
+    }
     </style>
 </head>
 <body>
@@ -281,6 +317,12 @@
     <ul id="horizontalClueList"></ul>
     <h3>Lodrätt</h3>
     <ul id="verticalClueList"></ul>
+</div>
+
+<div class="archive-link-container">
+    <a href="./archive/index.html" class="archive-link">
+        📚 Browse Puzzle Archive
+    </a>
 </div>
 
 <div class="toolbar">
@@ -299,65 +341,61 @@
         	cols: 10, 
 	rows: 10, 
 solution: [ 
-		[null, null, "10", "31", "32", "22", "5", "24", "8", null, ],
-		[null, "6", "h", "u", "y", "g", "e", "n", "s", null, ],
-		["12", "b", "ö", "r", "s", "4", "r", "17", "a", null, ],
-		["26", "u", "g", "3", "a", "a", "a", "25", "n", null, ],
-		["21", "d", "7", "n", "13", "u", "g", "23", "d", null, ],
-		[null, "2", "b", "a", "k", "r", "o", "20", "v", null, ],
-		["1", "v", "i", "s", "i", "o", "n", "15", "i", null, ],
-		["27", "å", "o", "h", "r", "r", "16", "u", "k", null, ],
-		["28", "t", "m", "9", "k", "a", "t", "t", null, null, ],
+		[null, null, "18", null, "2", null, null, null, null, null, ],
+		[null, "7", "a", "1", "i", "16", null, "13", null, null, ],
+		["4", "k", "v", "a", "n", "t", "28", "t", "12", null, ],
+		["24", "n", "a", "23", "g", "27", "29", "y", "s", null, ],
+		["17", "i", "5", "h", "e", "t", "30", "s", "m", null, ],
+		["25", "v", "v", "11", "m", "a", "c", "k", "a", null, ],
+		[null, "14", "e", "3", "a", "f", "k", "15", "l", null, ],
+		["6", "t", "o", "r", "r", null, null, null, null, null, ],
+		["21", "v", "10", "o", null, null, null, null, null, null, ],
 		[null, null, null, null, null, null, null, null, null, null, ],
 	],
         horizontalClues: [
-{ number: 1, clue: "android med identitetsfrågor" }, 
-{ number: 2, clue: "Bakpartiets första två bokstäver" }, 
-{ number: 3, clue: "liten batteri" }, 
-{ number: 4, clue: "viktigt ljud i motorer" }, 
-{ number: 6, clue: "astronom och fysiker" }, 
-{ number: 7, clue: "Startbokstaven i ordet 'nej'" }, 
-{ number: 9, clue: "jamande husdjur" }, 
-{ number: 12, clue: "aktiemarknad" }, 
-{ number: 13, clue: "Slutet på 'mugg' eller starten på 'uggla'?" }, 
-{ number: 15, clue: "liten vokal med prick" }, 
-{ number: 16, clue: "Storbritanniens två bokstäver" }, 
-{ number: 17, clue: "alfabetets etta" }, 
-{ number: 20, clue: "första bokstaven i varm" }, 
-{ number: 21, clue: "kommer efter c" }, 
-{ number: 23, clue: "bokstav före e" }, 
-{ number: 25, clue: "först i nej" }, 
-{ number: 26, clue: "Kort bit av 'uggla' på två bokstäver" }, 
-{ number: 27, clue: "En ovanlig kombination av vokaler och konsonanter som ljudar som förvåning" }, 
-{ number: 28, clue: "Symbolen för rättigheterna på en cool uppfinning" }, 
+{ number: 1, clue: "liten vokal med prick" }, 
+{ number: 3, clue: "kroppen är här, spelaren borta" }, 
+{ number: 4, clue: "energi i små paket" }, 
+{ number: 5, clue: "motsats till kall" }, 
+{ number: 6, clue: "motsats till våt" }, 
+{ number: 7, clue: "först ut i alfabetet" }, 
+{ number: 10, clue: "dyker ofta upp mellan två namn" }, 
+{ number: 11, clue: "brödskiva med pålägg" }, 
+{ number: 14, clue: "sveriges vanligaste vokal" }, 
+{ number: 15, clue: "finns mitt i ölglas" }, 
+{ number: 17, clue: "ser ut som ett utrop med prick" }, 
+{ number: 21, clue: "Protagonist i Cyberpunk 2077" }, 
+{ number: 23, clue: "Ljudet i början av ‘god’" }, 
+{ number: 24, clue: "Kemisk förkortning för natrium." }, 
+{ number: 25, clue: "Dubbelv-tecken i domännamn när man vill vara extra tydlig" }, 
+{ number: 28, clue: "Bokstaven som börjar ordet 'tåg'." }, 
+{ number: 29, clue: "Två bokstäver som isigt fryser fast i ordet 'kysst'?" }, 
+{ number: 30, clue: "Förkortning för 'social media' på nätet" }, 
 ],  
 verticalClues: [
-{ number: 2, clue: "motsats till torr" }, 
-{ number: 3, clue: "nobelpristagare i ekonomi" }, 
-{ number: 4, clue: "gryningens gudinna" }, 
-{ number: 5, clue: "drakryttare i Alagaësia" }, 
-{ number: 6, clue: "köpintresse" }, 
-{ number: 7, clue: "ekologisk region" }, 
-{ number: 8, clue: "industriföretag från Gästrikland" }, 
-{ number: 10, clue: "nära molnen" }, 
-{ number: 13, clue: "sci-fi kapten på Enterprise" }, 
-{ number: 15, clue: "motsats till in" }, 
+{ number: 1, clue: "alfabetets etta" }, 
+{ number: 2, clue: "världsmästare på skidor och tv-underhållning" }, 
+{ number: 3, clue: "lugn och ____" }, 
+{ number: 5, clue: "googles videogenerator" }, 
+{ number: 7, clue: "skär maten" }, 
+{ number: 12, clue: "motsats till bred" }, 
+{ number: 13, clue: "Från Tyskland" }, 
+{ number: 14, clue: "bildskärm i vardagsrum" }, 
 { number: 16, clue: "korsets favoritbokstav" }, 
-{ number: 22, clue: "först i glass" }, 
-{ number: 24, clue: "bokstav i november" }, 
-{ number: 31, clue: "Den som bestämmer tempot på armen" }, 
-{ number: 32, clue: "Så gör små bubblor i sjön" }, 
+{ number: 18, clue: "ai i Ex Machina" }, 
+{ number: 23, clue: "gömmer sig i hej" }, 
+{ number: 27, clue: "Kort slag mot något, ofta i lek" }, 
+{ number: 30, clue: "Bokstavsparet som kan avsluta 'smack'" }, 
 ],
         ai_gen_clues: [
-{ key: "ug", clue: "Kort bit av 'uggla' på två bokstäver", confidence: "70" }, 
-{ key: "åohrr", clue: "En ovanlig kombination av vokaler och konsonanter som ljudar som förvåning", confidence: "70" }, 
-{ key: "tm", clue: "Symbolen för rättigheterna på en cool uppfinning", confidence: "85" }, 
-{ key: "bakro", clue: "Bakpartiets första två bokstäver", confidence: "90" }, 
-{ key: "n", clue: "Startbokstaven i ordet 'nej'", confidence: "95" }, 
-{ key: "ur", clue: "Den som bestämmer tempot på armen", confidence: "85" }, 
-{ key: "ysa", clue: "Så gör små bubblor i sjön", confidence: "90" }, 
-{ key: "ug", clue: "Slutet på 'mugg' eller starten på 'uggla'?", confidence: "85" }, 
-{ key: "uk", clue: "Storbritanniens två bokstäver", confidence: "95" }, 
+{ key: "na", clue: "Kemisk förkortning för natrium.", confidence: "95" }, 
+{ key: "vv", clue: "Dubbelv-tecken i domännamn när man vill vara extra tydlig", confidence: "85" }, 
+{ key: "g", clue: "Ljudet i början av ‘god’", confidence: "95" }, 
+{ key: "taf", clue: "Kort slag mot något, ofta i lek", confidence: "85" }, 
+{ key: "t", clue: "Bokstaven som börjar ordet 'tåg'.", confidence: "90" }, 
+{ key: "ys", clue: "Två bokstäver som isigt fryser fast i ordet 'kysst'?", confidence: "80" }, 
+{ key: "sm", clue: "Förkortning för 'social media' på nätet", confidence: "90" }, 
+{ key: "ck", clue: "Bokstavsparet som kan avsluta 'smack'", confidence: "85" }, 
 ]
     };
 
@@ -516,9 +554,41 @@ document.getElementById("validateBtn").addEventListener("click", () => {
             }
         }
     });
+    
+    let all_correct = Array.from(inputs)
+        .every(w => w.classList.contains("correct"));
+
+    if (all_correct)
+    {
+        //todo: add some kind of celebration?
+
+        let today = new Date().toISOString().slice(0, 10);
+        const storage = loadStorageSet();
+        storage.add(today);
+        saveStorageSet(storage);
+    }
 });
 
-function isNumber(str){
+const STORAGE_KEY = "dagens-mini-completed-dates";
+
+function loadStorageSet() {
+    const raw = localStorage.getItem(STORAGE_KEY);
+
+    if (!raw) {
+        return new Set();
+    }
+
+    return new Set(JSON.parse(raw));
+}
+
+function saveStorageSet(set) {
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify([...set])
+    );
+}
+
+function isNumber(str) {
     const tryNum = Number(str);
     return !isNaN(tryNum);
 }
