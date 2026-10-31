@@ -160,14 +160,15 @@ const completedSet = loadStorageSet();
 
 async function renderArchive() 
 {
-    const date = new Date();
+    const today = new Date();
+    let date = new Date();
 
-    const todayString = getFormattedDate(date);
-    appendPuzzleCard(todayString, "./../index.html");
+    const todayString = getFormattedDate(today);
+    await appendPuzzleCard(todayString, "./../index.html");
 
     for (let i = 1; i < 100; i++) {
 
-        date.setDate(date.getDate() - i);
+        date.setDate(today.getDate() - i);
 
         const dateString = getFormattedDate(date);
         const puzzleUrl = "./" + dateString + ".html";
