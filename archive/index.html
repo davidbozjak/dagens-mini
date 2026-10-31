@@ -158,71 +158,74 @@ const archiveGrid = document.getElementById("archiveGrid");
 
 const completedSet = loadStorageSet();
 
-for (let i = 0; i < 100; i++) {
+async function renderArchive() {
 
-    const date = new Date();
-    date.setDate(date.getDate() - i);
+    for (let i = 1; i < 100; i++) {
 
-    const yyyy = date.getFullYear();
-    const mm = String(date.getMonth() + 1).padStart(2, "0");
-    const dd = String(date.getDate()).padStart(2, "0");
+        const date = new Date();
+        date.setDate(date.getDate() - i);
 
-    const dateString = `${yyyy}-${mm}-${dd}`;
+        const yyyy = date.getFullYear();
+        const mm = String(date.getMonth() + 1).padStart(2, "0");
+        const dd = String(date.getDate()).padStart(2, "0");
 
-    let status;
+        const dateString = `${yyyy}-${mm}-${dd}`;
 
-    const puzzleUrl = "./" + dateString + ".html";
+        let status;
 
-    let avaliable = puzzleExists(puzzleUrl);
+        const puzzleUrl = "./" + dateString + ".html";
 
-    if (!avaliable)
-    {
-        status = "unavailable";
-    }
-    else
-    {
-        if (completedSet.has(dateString))
+        let avaliable = await puzzleExists(puzzleUrl);
+
+        if (!avaliable)
         {
-            status = "completed";
+            status = "unavailable";
         }
         else
         {
-            status = "uncompleted";
+            if (completedSet.has(dateString))
+            {
+                status = "completed";
+            }
+            else
+            {
+                status = "uncompleted";
+            }
         }
+
+        const card = document.createElement("a");
+
+        card.className = `puzzle-card ${status}`;
+
+        if (avaliable) {
+            card.href = `${dateString}.html`;
+        } else {
+            card.removeAttribute("href");
+        }
+
+        card.innerHTML = `
+            <div class="puzzle-title">
+                Daily SE Mini
+            </div>
+
+            <div class="puzzle-date">
+                ${dateString}
+            </div>
+
+            <span class="status-badge status-${status}">
+                ${status.charAt(0).toUpperCase() + status.slice(1)}
+            </span>
+        `;
+
+        archiveGrid.appendChild(card);
     }
-
-    const card = document.createElement("a");
-
-    card.className = `puzzle-card ${status}`;
-
-    if (avaliable) {
-        card.href = `${dateString}.html`;
-    } else {
-        card.removeAttribute("href");
-    }
-
-    card.innerHTML = `
-        <div class="puzzle-title">
-            Daily SE Mini
-        </div>
-
-        <div class="puzzle-date">
-            ${dateString}
-        </div>
-
-        <span class="status-badge status-${status}">
-            ${status.charAt(0).toUpperCase() + status.slice(1)}
-        </span>
-    `;
-
-    archiveGrid.appendChild(card);
 }
 
-function puzzleExists(url) {
+async function puzzleExists(url) {
     try {
-        const response = fetch(url, {
+        const response = await fetch(url, {
             method: "HEAD"
-        }).wait();
+        });
 
         if (!response.ok)
         {
@@ -256,6 +259,8 @@ function saveStorageSet(set) {
         JSON.stringify([...set])
     );
 }
+
+renderArchive();
 
 </script>
 
