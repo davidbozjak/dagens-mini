@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Puzzle Archive</title>
+
+<style>
+:root {
+    --blue: #2563eb;
+    --blue-dark: #1d4ed8;
+    --border: #cbd5e1;
+    --radius: 12px;
+
+    --completed: #dcfce7;
+    --completed-text: #166534;
+
+    --uncompleted: #fef3c7;
+    --uncompleted-text: #92400e;
+
+    --unavailable: #f1f5f9;
+    --unavailable-text: #64748b;
+}
+
+body {
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
+
+    background: #f8fafc;
+    color: #1e293b;
+
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 24px 16px;
+
+    line-height: 1.5;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 32px;
+
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+}
+
+.archive-grid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(220px, 1fr)
+    );
+
+    gap: 16px;
+}
+
+.puzzle-card {
+    background: white;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    padding: 16px;
+
+    text-decoration: none;
+    color: inherit;
+
+    transition:
+        transform .15s ease,
+        box-shadow .2s ease;
+}
+
+.puzzle-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.08);
+}
+
+.puzzle-title {
+    font-size: 1rem;
+    font-weight: 600;
+
+    margin-bottom: 8px;
+}
+
+.puzzle-date {
+    color: #64748b;
+    font-size: 0.9rem;
+
+    margin-bottom: 12px;
+}
+
+.status-badge {
+    display: inline-block;
+
+    padding: 4px 10px;
+
+    border-radius: 999px;
+
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.status-completed {
+    background: var(--completed);
+    color: var(--completed-text);
+}
+
+.status-uncompleted {
+    background: var(--uncompleted);
+    color: var(--uncompleted-text);
+}
+
+.status-unavailable {
+    background: var(--unavailable);
+    color: var(--unavailable-text);
+}
+
+.puzzle-card.unavailable {
+    opacity: .7;
+    cursor: default;
+}
+
+.back-link {
+    display: inline-block;
+
+    margin-bottom: 24px;
+
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.back-link:hover {
+    color: var(--blue-dark);
+}
+</style>
+</head>
+<body>
+
+<a href="../index.html" class="back-link">
+    ← Today's Puzzle
+</a>
+
+<h1>Puzzle Archive</h1>
+
+<div id="archiveGrid" class="archive-grid"></div>
+
+<script>
+const STORAGE_KEY = "dagens-mini-completed-dates";
+
+const archiveGrid = document.getElementById("archiveGrid");
+
+const completedSet = loadStorageSet();
+
+for (let i = 0; i < 100; i++) {
+
+    const date = new Date();
+    date.setDate(date.getDate() - i);
+
+    const yyyy = date.getFullYear();
+    const mm = String(date.getMonth() + 1).padStart(2, "0");
+    const dd = String(date.getDate()).padStart(2, "0");
+
+    const dateString = `${yyyy}-${mm}-${dd}`;
+
+    let status;
+
+    const puzzleUrl = "./" + dateString + ".html";
+
+    let avaliable = puzzleExists(puzzleUrl);
+
+    if (!avaliable)
+    {
+        status = "unavailable";
+    }
+    else
+    {
+        if (completedSet.has(dateString))
+        {
+            status = "completed";
+        }
+        else
+        {
+            status = "uncompleted";
+        }
+    }
+
+    const card = document.createElement("a");
+
+    card.className = `puzzle-card ${status}`;
+
+    if (avaliable) {
+        card.href = `${dateString}.html`;
+    } else {
+        card.removeAttribute("href");
+    }
+
+    card.innerHTML = `
+        <div class="puzzle-title">
+            Daily SE Mini
+        </div>
+
+        <div class="puzzle-date">
+            ${dateString}
+        </div>
+
+        <span class="status-badge status-${status}">
+            ${status.charAt(0).toUpperCase() + status.slice(1)}
+        </span>
+    `;
+
+    archiveGrid.appendChild(card);
+}
+
+function puzzleExists(url) {
+    try {
+        const response = fetch(url, {
+            method: "HEAD"
+        }).wait();
+
+        if (!response.ok)
+        {
+            return false;   
+        }
+
+        if (response.url.includes("404")) {
+            return false;
+        }
+
+        return true;
+    }
+    catch {
+        return false;
+    }
+}
+
+function loadStorageSet() {
+    const raw = localStorage.getItem(STORAGE_KEY);
+
+    if (!raw) {
+        return new Set();
+    }
+
+    return new Set(JSON.parse(raw));
+}
+
+function saveStorageSet(set) {
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify([...set])
+    );
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily SE Mini Friday, 2026-10-30</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        max-width: 600px;
+        margin: auto;
+    }
+
+    #grid {
+        display: grid;
+        grid-template-columns: repeat(10, 40px);
+        gap: 4px;
+        justify-content: center;
+    }
+
+    .cell {
+        width: 40px;
+        height: 40px;
+        border: 1px solid #aaa;
+        text-align: center;
+        font-size: 22px;
+        position: relative;
+    }
+
+    .cell input {
+        width: 90%;
+        height: 90%;
+        border: none;
+        text-align: center;
+        font-size: 22px;
+    }
+
+    .clueBox {
+        width: 40px;
+        height: 40px;
+        background: #e0e0e0;
+        font-size: 16px;
+        display: flex;
+        align-items: center;   /* vertical centering */
+        justify-content: center; /* horizontal centering */
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-bottom-right-radius: 6px;
+    }
+
+    .transparent {
+        background: none;
+        border: none;
+    }
+
+    #validateBtn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 18px;
+    }
+
+    .correct {
+        background-color: #cce6ff !important; /* light blue */
+    }
+
+    .incorrect {
+        background-color: #ffcccc !important; /* light red */
+    }
+
+    #clues {
+        margin-top: 30px;
+    }
+
+    @media (max-width: 480px) {
+        #grid {
+            grid-template-columns: repeat(9, 32px);
+        }
+        .cell {
+            width: 32px;
+            height: 32px;
+        }
+        .cell input {
+            font-size: 18px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<h2>Daily SE Mini Friday, 2026-10-30</h2>
+
+<div id="grid"></div>
+
+<button id="validateBtn">Validate</button>
+
+<div id="Ledtrådar">
+    <h3>Vågrätt</h3>
+    <ul id="horizontalClueList"></ul>
+    <h3>Lodrätt</h3>
+    <ul id="verticalClueList"></ul>
+</div>
+
+<script>
+// ------------------------------
+// Crossword Data Structure
+// ------------------------------
+const crossword = {
+	cols: 10, 
+	rows: 9, 
+solution: [ 
+		[null, null, null, null, "3", null, null, null, null, null, ],
+		[null, null, null, "2", "s", "p", "i", "s", null, null, ],
+		[null, null, "1", "d", "o", "j", "o", "r", "10", null, ],
+		[null, "6", "c", "e", "l", "s", "i", "u", "s", null, ],
+		[null, "11", "13", "l", null, null, "8", "14", null, null, ],
+		["7", "s", "c", "h", "y", "s", "s", "t", null, null, ],
+		[null, "4", "b", "i", "n", "g", "e", null, null, null, ],
+		[null, null, null, "9", "u", "n", "g", null, null, null, ],
+		[null, null, null, null, null, null, null, null, null, null, ],
+	],
+horizontalClues: [
+{ number: 1, clue: "skor i slang" }, 
+{ number: 2, clue: "används vid matlagning" }, 
+{ number: 4, clue: "tittmaraton på tv-serier" }, 
+{ number: 6, clue: "svensk temperaturskala" }, 
+{ number: 7, clue: "något man gärna vill vara" }, 
+{ number: 9, clue: "motsats till gammal" }, 
+{ number: 13, clue: "först i lund" }, 
+],  
+verticalClues: [
+{ number: 1, clue: "vanlig i engelsk stavning" }, 
+{ number: 2, clue: "Indiens huvudstad" }, 
+{ number: 3, clue: "solgud i Rom" }, 
+{ number: 8, clue: "hinner efter kön" }, 
+{ number: 10, clue: "ormlik bokstav" }, 
+{ number: 11, clue: "slingrig bokstav" }, 
+{ number: 14, clue: "korsets favoritbokstav" }, 
+]
+};
+
+// ------------------------------
+// Build the grid
+// ------------------------------
+const grid = document.getElementById("grid");
+
+for (let r = 0; r < crossword.rows; r++) {
+    for (let c = 0; c < crossword.cols; c++) {
+        const cell = document.createElement("div");
+        cell.classList.add("cell");
+
+        let sol_content = crossword.solution[r][c];
+
+        if (sol_content === null) {
+            cell.classList.add("transparent");
+        }
+        else if (isNumber(sol_content)) {
+            const clueBox = document.createElement("div");
+            clueBox.classList.add("clueBox");
+            clueBox.textContent = sol_content;
+            cell.appendChild(clueBox);
+        } else {
+            const input = document.createElement("input");
+            input.maxLength = 1;
+            input.dataset.row = r;
+            input.dataset.col = c;
+            cell.appendChild(input);
+        }
+
+        grid.appendChild(cell);
+    }
+}
+
+// ------------------------------
+// Display clues
+// ------------------------------
+const horizontalClueList = document.getElementById("horizontalClueList");
+crossword.horizontalClues.forEach(cl => {
+    const li = document.createElement("li");
+    li.textContent = `${cl.number}: ${cl.clue}`;
+    horizontalClueList.appendChild(li);
+});
+
+const verticalClueList = document.getElementById("verticalClueList");
+crossword.verticalClues.forEach(cl => {
+    const li = document.createElement("li");
+    li.textContent = `${cl.number}: ${cl.clue}`;
+    verticalClueList.appendChild(li);
+});
+
+// ------------------------------
+// Validation logic
+// ------------------------------
+document.getElementById("validateBtn").addEventListener("click", () => {
+    const inputs = document.querySelectorAll(".cell input");
+
+    inputs.forEach(input => {
+        const r = input.dataset.row;
+        const c = input.dataset.col;
+        const correct = crossword.solution[r][c].toUpperCase();
+
+        if (input.value != "") {
+            if (input.value.toUpperCase() === correct) {
+                input.classList.remove("incorrect");
+                input.classList.add("correct");
+            } else {
+                input.classList.remove("correct");
+                input.classList.add("incorrect");
+            }
+        }
+    });
+});
+
+function isNumber(str){
+    const tryNum = Number(str);
+    return !isNaN(tryNum);
+}
+</script>
+
+</body>
+</html>
