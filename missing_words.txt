@@ -155,3 +155,9 @@ ip
 oled
 lexhe
 tx
+ate
+era
+eom
+cho
+dmem
+ubr
