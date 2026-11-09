@@ -328,39 +328,65 @@
 // Crossword Data Structure
 // ------------------------------
     const crossword = {
-        	cols: 7, 
-	rows: 7, 
+        	cols: 10, 
+	rows: 10, 
 solution: [ 
-		[null, "1", "2", "3", "4", null, null, ],
-		["5", "n", "o", "o", "b", "6", null, ],
-		["7", "i", "8", "r", "u", "a", null, ],
-		[null, "9", "j", "b", "c", "h", null, ],
-		["10", "h", "a", "i", "k", "u", null, ],
-		["11", "y", "12", "t", "y", null, null, ],
-		[null, null, null, null, null, null, null, ],
+		[null, null, null, null, null, "1", "2", "3", null, null, ],
+		[null, null, "4", "5", "6", "e", "f", "s", "7", null, ],
+		[null, "8", "s", "n", "ä", "c", "k", "a", "n", null, ],
+		["9", "f", "i", "j", "i", "10", "11", "m", "12", null, ],
+		["13", "e", "l", "14", "t", "a", "c", "o", "s", null, ],
+		["15", "n", "k", "16", "g", "w", "17", "a", "p", null, ],
+		["18", "s", "19", "k", "n", "i", "v", "20", "a", null, ],
+		["21", "a", "r", "m", "22", "n", "a", "23", "m", null, ],
+		["24", "l", "n", null, "25", "g", "s", null, null, null, ],
+		[null, null, null, null, null, null, null, null, null, null, ],
 	],
         horizontalClues: [
-{ number: 5, clue: "har mycket kvar att lära" }, 
-{ number: 7, clue: "ser ut som ett utrop med prick" }, 
-{ number: 8, clue: "Portugisiskt ord för gata" }, 
-{ number: 9, clue: "Bokstavsnamnen i ordning: jota, be, se, hå." }, 
-{ number: 10, clue: "snabb claude-modell" }, 
-{ number: 11, clue: "sista vanliga vokalen" }, 
-{ number: 12, clue: "Gammaldags ord för eftersom" }, 
+{ number: 6, clue: "Förkortning för Evangeliska Fosterlands-Stiftelsen" }, 
+{ number: 8, clue: "person som förväntas svara i telefon" }, 
+{ number: 9, clue: "östat i Stilla havet" }, 
+{ number: 11, clue: "mått för lite längre saker" }, 
+{ number: 13, clue: "Kraften som får lampan att lysa" }, 
+{ number: 14, clue: "fredagsmys i tortillabröd" }, 
+{ number: 15, clue: "Initialförkortning för Nordiska Kompaniet" }, 
+{ number: 16, clue: "trivs bäst med brott och viltkött" }, 
+{ number: 17, clue: "Förkortning för den amerikanska nyhetsbyrån Associated Press" }, 
+{ number: 18, clue: "ormlik bokstav" }, 
+{ number: 19, clue: "skär maten" }, 
+{ number: 20, clue: "alfabetets etta" }, 
+{ number: 21, clue: "kroppsdel" }, 
+{ number: 22, clue: "Kemisk förkortning för natrium" }, 
+{ number: 23, clue: "Bokstaven före N." }, 
+{ number: 24, clue: "Förkortning inom matematik för logaritm med bas e" }, 
+{ number: 25, clue: "Tennisens fyra stora turneringar, förkortat med deras engelska benämning." }, 
 ],  
 verticalClues: [
-{ number: 1, clue: "Styrka inom polisen som sats in vid gisslandrama, förkortning " }, 
-{ number: 2, clue: "dyker ofta upp mellan två namn" }, 
-{ number: 3, clue: "bana runt himlakropp" }, 
-{ number: 4, clue: "vän som vägrade pensionera sig" }, 
-{ number: 6, clue: "En öppenning på Påskön med statyer runtom (tre bokstäver)" }, 
-{ number: 8, clue: "positiv till förslaget" }, 
-{ number: 9, clue: "människokroppens stortsa organ" }, 
+{ number: 1, clue: "föreslår nya eu-lagar" }, 
+{ number: 2, clue: "Förkortning för Försäkringskassan" }, 
+{ number: 3, clue: "ögrupp i Stilla havet" }, 
+{ number: 4, clue: "spindelbaserad marvelhjältinna" }, 
+{ number: 5, clue: "Bokstaven efter M, följd av bokstaven före K." }, 
+{ number: 6, clue: "Bokstäverna i «äng» och IT, omkastade och hopskrivna." }, 
+{ number: 7, clue: "Bokstaven efter M i svenska alfabetet" }, 
+{ number: 8, clue: "Frejas boning" }, 
+{ number: 10, clue: "snabb interceptor i Star Wars" }, 
+{ number: 11, clue: "gillar engelska ord" }, 
+{ number: 12, clue: "mejl som man inte besvarar" }, 
+{ number: 16, clue: "längdmått" }, 
+{ number: 17, clue: "för bukett" }, 
+{ number: 19, clue: "Kemisk symbol för grundämnet radon" }, 
 ],
         ai_gen_clues: [
-{ key: "jbch", clue: "Bokstavsnamnen i ordning: jota, be, se, hå.", confidence: "96" }, 
-{ key: "rua", clue: "Portugisiskt ord för gata", confidence: "98" }, 
-{ key: "ty", clue: "Gammaldags ord för eftersom", confidence: "96" }, 
+{ key: "el", clue: "Kraften som får lampan att lysa", confidence: "94" }, 
+{ key: "nk", clue: "Initialförkortning för Nordiska Kompaniet", confidence: "100" }, 
+{ key: "rn", clue: "Kemisk symbol för grundämnet radon", confidence: "99" }, 
+{ key: "nj", clue: "Bokstaven efter M, följd av bokstaven före K.", confidence: "96" }, 
+{ key: "efs", clue: "Förkortning för Evangeliska Fosterlands-Stiftelsen", confidence: "99" }, 
+{ key: "äitgn", clue: "Bokstäverna i «äng» och IT, omkastade och hopskrivna.", confidence: "72" }, 
+{ key: "gs", clue: "Tennisens fyra stora turneringar, förkortat med deras engelska benämning.", confidence: "82" }, 
+{ key: "ap", clue: "Förkortning för den amerikanska nyhetsbyrån Associated Press", confidence: "99" }, 
+{ key: "m", clue: "Bokstaven före N.", confidence: "100" }, 
 ]
     };
 
@@ -370,7 +396,7 @@ verticalClues: [
 // Build the grid
 // ------------------------------
 const grid = document.getElementById("grid");
-grid.style.setProperty("--cols", 7);
+grid.style.setProperty("--cols", 10);
 
 for (let r = 0; r < crossword.rows; r++) {
     for (let c = 0; c < crossword.cols; c++) {
