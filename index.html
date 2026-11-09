@@ -328,55 +328,39 @@
 // Crossword Data Structure
 // ------------------------------
     const crossword = {
-        	cols: 9, 
-	rows: 9, 
+        	cols: 7, 
+	rows: 7, 
 solution: [ 
-		[null, null, "1", "2", "3", "4", "5", null, null, ],
-		[null, "6", "m", "o", "n", "o", "d", "7", null, ],
-		[null, "8", "u", "n", "i", "l", "9", "k", null, ],
-		[null, "10", "n", "s", "11", "e", "k", "o", null, ],
-		[null, "12", "13", "e", "14", "d", "v", "s", null, ],
-		["15", "l", "ö", "n", "16", "17", "ä", "i", null, ],
-		["18", "å", "l", "19", "i", "20", "v", "n", null, ],
-		["21", "n", "a", "t", "t", "22", "e", "g", null, ],
-		[null, null, null, null, null, null, null, null, null, ],
+		[null, "1", "2", "3", "4", null, null, ],
+		["5", "n", "o", "o", "b", "6", null, ],
+		["7", "i", "8", "r", "u", "a", null, ],
+		[null, "9", "j", "b", "c", "h", null, ],
+		["10", "h", "a", "i", "k", "u", null, ],
+		["11", "y", "12", "t", "y", null, null, ],
+		[null, null, null, null, null, null, null, ],
 	],
         horizontalClues: [
-{ number: 6, clue: "nobelpristagare inom genetik" }, 
-{ number: 8, clue: "Förkortning för universitet i Lausanne, Schweiz (franska)." }, 
-{ number: 9, clue: "Symbolen för kemiskt grundämne kalium" }, 
-{ number: 10, clue: "Förkortning för nukleär styrka" }, 
-{ number: 11, clue: "reflekterat ljud" }, 
-{ number: 13, clue: "sveriges vanligaste vokal" }, 
-{ number: 14, clue: "för den som vill vara tydligare" }, 
-{ number: 15, clue: "ersättning för arbete" }, 
-{ number: 17, clue: "En svensk dialektform för 'är' i presens (kort form)" }, 
-{ number: 18, clue: "lång fisk" }, 
-{ number: 19, clue: "ser ut som ett utrop med prick" }, 
-{ number: 20, clue: "Förkortning för Vänsterpartiet i Sverige" }, 
-{ number: 21, clue: "motsats till dag" }, 
-{ number: 22, clue: "Tvåbokstavsförkortning som kan stå för 'egen' i sms-språk" }, 
+{ number: 5, clue: "har mycket kvar att lära" }, 
+{ number: 7, clue: "ser ut som ett utrop med prick" }, 
+{ number: 8, clue: "Portugisiskt ord för gata" }, 
+{ number: 9, clue: "Bokstavsnamnen i ordning: jota, be, se, hå." }, 
+{ number: 10, clue: "snabb claude-modell" }, 
+{ number: 11, clue: "sista vanliga vokalen" }, 
+{ number: 12, clue: "Gammaldags ord för eftersom" }, 
 ],  
 verticalClues: [
-{ number: 1, clue: "talorgan" }, 
-{ number: 2, clue: "bad med väldigt varmt vatten" }, 
-{ number: 3, clue: "Andraperson plural i vardagligt tal" }, 
-{ number: 4, clue: "En modern typ av skärmteknik som ofta används i smartphones och TV-apparater" }, 
-{ number: 5, clue: "kommer efter c" }, 
-{ number: 7, clue: "pengar med bättre självförtroende" }, 
-{ number: 9, clue: "största delen av luften" }, 
-{ number: 12, clue: "skuldfinansiering" }, 
-{ number: 13, clue: "Gammalt svenskt ord för att dricka öl" }, 
-{ number: 16, clue: "Kortpronomen för något obestämt i engelskan" }, 
-{ number: 19, clue: "korsets favoritbokstav" }, 
+{ number: 1, clue: "Styrka inom polisen som sats in vid gisslandrama, förkortning " }, 
+{ number: 2, clue: "dyker ofta upp mellan två namn" }, 
+{ number: 3, clue: "bana runt himlakropp" }, 
+{ number: 4, clue: "vän som vägrade pensionera sig" }, 
+{ number: 6, clue: "En öppenning på Påskön med statyer runtom (tre bokstäver)" }, 
+{ number: 8, clue: "positiv till förslaget" }, 
+{ number: 9, clue: "människokroppens stortsa organ" }, 
 ],
         ai_gen_clues: [
-{ key: "unil", clue: "Förkortning för universitet i Lausanne, Schweiz (franska).", confidence: "85" }, 
-{ key: "ns", clue: "Förkortning för nukleär styrka", confidence: "85" }, 
-{ key: "öla", clue: "Gammalt svenskt ord för att dricka öl", confidence: "90" }, 
-{ key: "äi", clue: "En svensk dialektform för 'är' i presens (kort form)", confidence: "85" }, 
-{ key: "vn", clue: "Förkortning för Vänsterpartiet i Sverige", confidence: "85" }, 
-{ key: "eg", clue: "Tvåbokstavsförkortning som kan stå för 'egen' i sms-språk", confidence: "85" }, 
+{ key: "jbch", clue: "Bokstavsnamnen i ordning: jota, be, se, hå.", confidence: "96" }, 
+{ key: "rua", clue: "Portugisiskt ord för gata", confidence: "98" }, 
+{ key: "ty", clue: "Gammaldags ord för eftersom", confidence: "96" }, 
 ]
     };
 
@@ -386,7 +370,7 @@ verticalClues: [
 // Build the grid
 // ------------------------------
 const grid = document.getElementById("grid");
-grid.style.setProperty("--cols", 9);
+grid.style.setProperty("--cols", 7);
 
 for (let r = 0; r < crossword.rows; r++) {
     for (let c = 0; c < crossword.cols; c++) {
