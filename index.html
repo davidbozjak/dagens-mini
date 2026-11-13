@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Daily SE Mini Friday, 2026-11-13</title>
+    <title>Daily SE Mini Saturday, 2026-11-14</title>
 
     <style>
     :root {
@@ -296,7 +296,7 @@
 </head>
 <body>
 
-<h2>Daily SE Mini Friday, 2026-11-13</h2>
+<h2>Daily SE Mini Saturday, 2026-11-14</h2>
 
 <div id="grid"></div>
 
@@ -328,92 +328,104 @@
 // Crossword Data Structure
 // ------------------------------
     const crossword = {
-        	cols: 12, 
-	rows: 12, 
+        	cols: 14, 
+	rows: 14, 
 solution: [ 
-		[null, "1", null, null, "2", "3", "4", "5", "6", null, null, null, ],
-		["7", "b", "8", "9", "m", "o", "n", "z", "a", null, "10", null, ],
-		["11", "u", "t", "g", "a", "r", "d", "12", "j", "13", "j", null, ],
-		["14", "l", "y", "15", "l", "g", "16", "n", "i", "17", "a", null, ],
-		["18", "b", "l", "l", "19", "e", "20", "i", "21", "22", "d", null, ],
-		["23", "a", "e", "a", "24", "l", "25", "c", "o", "r", "i", null, ],
-		["26", "s", "r", "m", "27", null, "28", "e", "p", "a", "s", null, ],
-		["29", "a", "30", "a", "k", null, null, "31", "s", "i", "32", null, ],
-		["33", "u", "34", "r", "r", "35", "36", "37", "38", "d", "l", null, ],
-		["39", "r", "o", "c", "i", "n", "a", "n", "t", "e", "40", null, ],
-		[null, "41", "e", "k", "s", "j", "ö", "42", "e", "r", "a", null, ],
-		[null, null, null, null, null, null, null, null, null, null, null, null, ],
+		[null, "1", "2", "3", "4", "5", "6", "7", null, "8", "9", null, null, null, ],
+		["10", "v", "r", "i", "s", "i", "n", "g", "11", "l", "n", "12", null, null, ],
+		["13", "e", "14", "w", "i", "l", "15", "u", "16", "u", "17", "i", "18", null, ],
+		["19", "o", "20", "å", "l", "21", "g", "b", "22", "f", "å", "n", "r", null, ],
+		[null, "23", null, "24", "25", "26", "e", "b", "g", "f", "b", "e", "i", null, ],
+		["27", "u", "28", "n", "e", "w", "n", "e", "w", "y", "o", "r", "k", null, ],
+		["29", "t", "i", "c", "k", "a", "30", "31", "32", null, "33", "t", "34", null, ],
+		[null, "35", "k", "a", "l", "c", "i", "u", "m", "36", "37", "i", "n", null, ],
+		[null, null, "38", "e", "i", "n", "s", "t", "e", "i", "n", "39", "ä", null, ],
+		[null, "40", "s", "41", "p", "e", "s", "t", "o", "42", "o", "d", "s", null, ],
+		["43", "d", "a", "l", "s", "l", "a", "n", "d", "44", "v", "o", "a", null, ],
+		["45", "e", "x", "o", "46", "i", "n", "g", "e", "m", "a", "r", "47", null, ],
+		["48", "t", null, null, null, null, null, null, null, null, "49", "a", "s", null, ],
+		[null, null, null, null, null, null, null, null, null, null, null, null, null, null, ],
 	],
         horizontalClues: [
-{ number: 7, clue: "tvåa bland bokstäverna" }, 
-{ number: 9, clue: "hämndlysten legoknektsledare" }, 
-{ number: 11, clue: "jättarnas värld" }, 
-{ number: 12, clue: "Tionde bokstaven i alfabetet" }, 
-{ number: 13, clue: "Bokstaven mellan I och K i alfabetet" }, 
-{ number: 14, clue: "Skydd mot blåst och regn" }, 
-{ number: 15, clue: "Tioslogaritmens vanliga beteckning" }, 
-{ number: 16, clue: "Andraperson plural i vardagligt tal" }, 
-{ number: 17, clue: "först ut i alfabetet" }, 
-{ number: 18, clue: "IATA-kod för flygplatsen i Billund" }, 
-{ number: 19, clue: "sveriges vanligaste vokal" }, 
-{ number: 20, clue: "liten vokal med prick" }, 
-{ number: 22, clue: "kommer efter c" }, 
-{ number: 23, clue: "Förkortning för Akademikernas a-kassa." }, 
-{ number: 24, clue: "Bokstaven efter k" }, 
-{ number: 25, clue: "nobelpristagare i medicin" }, 
-{ number: 26, clue: "Engelsk förkortning för hantering av leverantörsrelationer." }, 
-{ number: 28, clue: "Ägandeform av en epa" }, 
-{ number: 29, clue: "Första bokstaven i alfabetet" }, 
-{ number: 30, clue: "”Vit” på turkiska" }, 
-{ number: 31, clue: "Tonstavelsen mellan la och do i den internationella do-re-mi-skalan" }, 
-{ number: 33, clue: "vokal efter t" }, 
-{ number: 34, clue: "Två R-bokstäver direkt efter varandra" }, 
-{ number: 38, clue: "vanligt i recept" }, 
-{ number: 39, clue: "skepp i The Expanse" }, 
-{ number: 41, clue: "småländsk trästad" }, 
-{ number: 42, clue: "Tidsålder eller epok" }, 
+{ number: 10, clue: "vampyrsimulator med bygglov" }, 
+{ number: 11, clue: "Förkortning inom matematik för logaritm med bas e" }, 
+{ number: 13, clue: "vokalernas arbetshäst" }, 
+{ number: 14, clue: "hjälte i Shannara" }, 
+{ number: 15, clue: "vokal efter t" }, 
+{ number: 16, clue: "vokalen mellan t och v" }, 
+{ number: 17, clue: "ser ut som ett utrop med prick" }, 
+{ number: 19, clue: "vokal formad som sig själv" }, 
+{ number: 20, clue: "lång fisk" }, 
+{ number: 21, clue: "Förkortning för gigabyte inom datorminnen" }, 
+{ number: 22, clue: "Skriv ihop ”få” och kortformen för nummer." }, 
+{ number: 26, clue: "Ta begynnelsebokstäverna i de engelska NATO-kodorden ECHO, BRAVO, GOLF, FOXTROT, BRAVO, ECHO och INDIA." }, 
+{ number: 27, clue: "Bokstav mellan T och V" }, 
+{ number: 28, clue: "stad byggd ovanpå ett äldre New York" }, 
+{ number: 29, clue: "vedlevande svamp" }, 
+{ number: 33, clue: "En symbol för temperatur i fysiken" }, 
+{ number: 35, clue: "bygger skelett" }, 
+{ number: 37, clue: "motsats till ut" }, 
+{ number: 38, clue: "nobelpristagare bakom relativitetsteorin" }, 
+{ number: 39, clue: "finns i räka" }, 
+{ number: 40, clue: "ormlik bokstav" }, 
+{ number: 41, clue: "grön italiensk pastafavorit" }, 
+{ number: 42, clue: "Vad den danska ordboken Ordbog over det danske Sprog brukar förkortas till" }, 
+{ number: 43, clue: "sveriges största skog med inslag av sjö" }, 
+{ number: 44, clue: "Voice of America i kortform (engelska)" }, 
+{ number: 45, clue: "Grekiskt förled som betyder ”utanför”" }, 
+{ number: 46, clue: "världsmästare på skidor och tv-underhållning" }, 
+{ number: 48, clue: "korsets favoritbokstav" }, 
+{ number: 49, clue: "Kadaver av ett dött djur" }, 
 ],  
 verticalClues: [
-{ number: 1, clue: "startade livet med en planta på ryggen" }, 
-{ number: 2, clue: "sci-fi kapten i Firefly" }, 
-{ number: 3, clue: "pianot som tog över hela kyrkan" }, 
-{ number: 4, clue: "De två sista bokstäverna i ”sand”, utan mellanrum." }, 
-{ number: 5, clue: "sista bokstaven före å" }, 
-{ number: 6, clue: "chilisås från Peru" }, 
-{ number: 8, clue: "tvålförsäljare i kluben man får inte prata om" }, 
-{ number: 9, clue: "Bokstaven efter f" }, 
-{ number: 10, clue: "den vita häxan" }, 
-{ number: 12, clue: "svenskarnas favoritengelska" }, 
-{ number: 15, clue: "tidig evolutionsteoretiker" }, 
-{ number: 21, clue: "gudinna för rikedom" }, 
-{ number: 22, clue: "cylonskt jaktplan" }, 
-{ number: 27, clue: "Svår tid" }, 
-{ number: 32, clue: "finns mitt i ölglas" }, 
-{ number: 34, clue: "Tysk omskrivning av ö med två bokstäver" }, 
-{ number: 35, clue: "Tvåbokstavskod för delstaten New Jersey" }, 
-{ number: 36, clue: "Svenska alfabetets första och sista bokstav, hopskrivna" }, 
-{ number: 37, clue: "Bokstaven efter M i svenska alfabetet" }, 
-{ number: 38, clue: "varm dryck" }, 
-{ number: 40, clue: "alfabetets etta" }, 
+{ number: 1, clue: "googles videogenerator" }, 
+{ number: 2, clue: "viktigt ljud i motorer" }, 
+{ number: 3, clue: "Två delar utan mellanrum: i + dialektalt ord för våg." }, 
+{ number: 4, clue: "köksredskap med hål" }, 
+{ number: 5, clue: "Kortvarig vindstöt" }, 
+{ number: 6, clue: "Bokstaven efter M i svenska alfabetet" }, 
+{ number: 7, clue: "äldre man i vardagstal" }, 
+{ number: 8, clue: "Mest optimistisk pirat" }, 
+{ number: 9, clue: "Bokstaven som följer efter M i alfabetet" }, 
+{ number: 12, clue: "tröghet i rörelse" }, 
+{ number: 15, clue: "enhet för arv" }, 
+{ number: 17, clue: "stad i Finland" }, 
+{ number: 18, clue: "slipper titta på prislappen" }, 
+{ number: 22, clue: "trivs bäst med brott och viltkött" }, 
+{ number: 23, clue: "motsats till in" }, 
+{ number: 24, clue: "Initialerna i namnen Nanna, Cecilia, Alva och Elsa, ihopskrivna med små bokstäver." }, 
+{ number: 25, clue: "Annat ord för förmörkelse" }, 
+{ number: 26, clue: "Sju bokstäver: dubbel-v, a, c, n, e, l och i, i den ordningen." }, 
+{ number: 28, clue: "Förkortning för idrottsklubb" }, 
+{ number: 30, clue: "Fruset vatten följt av japansk artighetstitel, hopskrivet." }, 
+{ number: 31, clue: "Skriv ihop svenska riktningsordet ”ut” med den engelska Star Trek-förkortningen för The Next Generation." }, 
+{ number: 32, clue: "Engelska för ”mig” följt av en hyllningsdikt, hopskrivet" }, 
+{ number: 34, clue: "luktorgan" }, 
+{ number: 36, clue: "liten vokal med prick" }, 
+{ number: 37, clue: "rymdburen marvelhjälte" }, 
+{ number: 38, clue: "klipper material" }, 
+{ number: 39, clue: "upptäckare som alltid frågar publiken" }, 
+{ number: 40, clue: "Pronomen som pekar ut något specifikt" }, 
+{ number: 41, clue: "svenskt rovdjur" }, 
+{ number: 44, clue: "mått för lite längre saker" }, 
+{ number: 47, clue: "slingrig bokstav" }, 
 ],
         ai_gen_clues: [
-{ key: "ly", clue: "Skydd mot blåst och regn", confidence: "95" }, 
-{ key: "bll", clue: "IATA-kod för flygplatsen i Billund", confidence: "96" }, 
-{ key: "aea", clue: "Förkortning för Akademikernas a-kassa.", confidence: "98" }, 
-{ key: "srm", clue: "Engelsk förkortning för hantering av leverantörsrelationer.", confidence: "88" }, 
-{ key: "a", clue: "Första bokstaven i alfabetet", confidence: "99" }, 
-{ key: "ak", clue: "”Vit” på turkiska", confidence: "98" }, 
-{ key: "rr", clue: "Två R-bokstäver direkt efter varandra", confidence: "96" }, 
-{ key: "oe", clue: "Tysk omskrivning av ö med två bokstäver", confidence: "92" }, 
-{ key: "g", clue: "Bokstaven efter f", confidence: "98" }, 
-{ key: "lg", clue: "Tioslogaritmens vanliga beteckning", confidence: "94" }, 
-{ key: "nj", clue: "Tvåbokstavskod för delstaten New Jersey", confidence: "98" }, 
-{ key: "nd", clue: "De två sista bokstäverna i ”sand”, utan mellanrum.", confidence: "98" }, 
-{ key: "epas", clue: "Ägandeform av en epa", confidence: "96" }, 
-{ key: "aö", clue: "Svenska alfabetets första och sista bokstav, hopskrivna", confidence: "98" }, 
-{ key: "j", clue: "Tionde bokstaven i alfabetet", confidence: "99" }, 
-{ key: "si", clue: "Tonstavelsen mellan la och do i den internationella do-re-mi-skalan", confidence: "96" }, 
-{ key: "j", clue: "Bokstaven mellan I och K i alfabetet", confidence: "99" }, 
+{ key: "u", clue: "Bokstav mellan T och V", confidence: "99" }, 
+{ key: "exo", clue: "Grekiskt förled som betyder ”utanför”", confidence: "96" }, 
+{ key: "ik", clue: "Förkortning för idrottsklubb", confidence: "98" }, 
+{ key: "iwå", clue: "Två delar utan mellanrum: i + dialektalt ord för våg.", confidence: "58" }, 
+{ key: "ncae", clue: "Initialerna i namnen Nanna, Cecilia, Alva och Elsa, ihopskrivna med små bokstäver.", confidence: "98" }, 
+{ key: "il", clue: "Kortvarig vindstöt", confidence: "94" }, 
+{ key: "ebgfbei", clue: "Ta begynnelsebokstäverna i de engelska NATO-kodorden ECHO, BRAVO, GOLF, FOXTROT, BRAVO, ECHO och INDIA.", confidence: "93" }, 
+{ key: "wacneli", clue: "Sju bokstäver: dubbel-v, a, c, n, e, l och i, i den ordningen.", confidence: "100" }, 
+{ key: "issan", clue: "Fruset vatten följt av japansk artighetstitel, hopskrivet.", confidence: "91" }, 
+{ key: "uttng", clue: "Skriv ihop svenska riktningsordet ”ut” med den engelska Star Trek-förkortningen för The Next Generation.", confidence: "78" }, 
+{ key: "fånr", clue: "Skriv ihop ”få” och kortformen för nummer.", confidence: "98" }, 
+{ key: "meode", clue: "Engelska för ”mig” följt av en hyllningsdikt, hopskrivet", confidence: "96" }, 
+{ key: "ods", clue: "Vad den danska ordboken Ordbog over det danske Sprog brukar förkortas till", confidence: "88" }, 
+{ key: "voa", clue: "Voice of America i kortform (engelska)", confidence: "98" }, 
+{ key: "n", clue: "Bokstaven som följer efter M i alfabetet", confidence: "99" }, 
 ]
     };
 
@@ -423,7 +435,7 @@ verticalClues: [
 // Build the grid
 // ------------------------------
 const grid = document.getElementById("grid");
-grid.style.setProperty("--cols", 12);
+grid.style.setProperty("--cols", 14);
 
 for (let r = 0; r < crossword.rows; r++) {
     for (let c = 0; c < crossword.cols; c++) {
@@ -581,7 +593,7 @@ document.getElementById("validateBtn").addEventListener("click", () => {
         //todo: add some kind of celebration?
 
         const storage = loadStorageSet();
-        storage.add("2026-11-13");
+        storage.add("2026-11-14");
         saveStorageSet(storage);
     }
 });
