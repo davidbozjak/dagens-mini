@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Daily SE Mini Sunday, 2026-11-15</title>
+    <title>Daily SE Mini Tuesday, 2026-11-17</title>
 
     <style>
     :root {
@@ -296,7 +296,7 @@
 </head>
 <body>
 
-<h2>Daily SE Mini Sunday, 2026-11-15</h2>
+<h2>Daily SE Mini Tuesday, 2026-11-17</h2>
 
 <div id="grid"></div>
 
@@ -328,76 +328,63 @@
 // Crossword Data Structure
 // ------------------------------
     const crossword = {
-        	cols: 12, 
-	rows: 12, 
+        	cols: 10, 
+	rows: 10, 
 solution: [ 
-		[null, null, null, null, "1", "2", "3", "4", null, null, null, null, ],
-		[null, null, null, "5", "s", "a", "f", "t", "6", null, "7", null, ],
-		[null, null, "8", "m", "a", "t", "c", "h", "a", "9", "h", null, ],
-		[null, "10", "s", "i", "l", "k", "11", "e", "d", "g", "e", null, ],
-		[null, "12", "t", "n", "k", "13", "k", "r", "u", "b", "b", null, ],
-		[null, "14", "o", "e", "15", "p", "e", "e", "d", "e", "e", null, ],
-		[null, "16", "r", "c", null, "17", "s", "m", "h", "i", "18", null, ],
-		["19", "b", "m", "r", null, "20", "s", "i", "a", "21", "o", null, ],
-		["22", "u", "23", "a", "24", "d", "u", "n", "c", "a", "n", null, ],
-		["25", "f", "26", "f", "r", "y", "s", null, "27", "s", "i", null, ],
-		["28", "f", "o", "t", "o", "n", null, null, null, "29", "x", null, ],
-		[null, null, null, null, null, null, null, null, null, null, null, null, ],
+		[null, "1", "2", "3", null, "4", "5", "6", "7", null, ],
+		["8", "a", "n", "g", "9", "n", "o", "v", "a", null, ],
+		[null, "10", "i", "11", "j", "a", "v", "a", null, null, ],
+		["12", "b", "g", "n", "13", "b", "b", "14", "15", null, ],
+		["16", "a", "e", "o", "17", "o", "s", "l", "o", null, ],
+		["18", "k", "r", "o", "k", "o", "d", "i", "l", null, ],
+		[null, "19", "20", "b", "21", "22", "ä", "t", "a", null, ],
+		["23", "e", "n", "24", "j", "25", "f", "e", "z", null, ],
+		["26", "c", "a", "r", "a", "m", "o", "n", null, null, ],
+		[null, null, null, null, null, null, null, null, null, null, ],
 	],
         horizontalClues: [
-{ number: 5, clue: "söt dryck" }, 
-{ number: 8, clue: "grönt pulver med kultstatus" }, 
-{ number: 9, clue: "gömmer sig i hej" }, 
-{ number: 10, clue: "spindelbaserad marvelhjältinna" }, 
-{ number: 11, clue: "webbläsaren som envisas med att följa med" }, 
-{ number: 12, clue: "Konsonanterna i «tänk»" }, 
-{ number: 13, clue: "mat i äldre slang" }, 
-{ number: 14, clue: "Tysk omskrivning av ö med två bokstäver" }, 
-{ number: 15, clue: "inte alltid hjälte men alltid där" }, 
-{ number: 16, clue: "Förkortning av engelskans ”remote control”" }, 
-{ number: 17, clue: "förutspår regn på semestern" }, 
-{ number: 19, clue: "Engelskt mått på basal ämnesomsättning, förkortat" }, 
-{ number: 20, clue: "en myndighet är det dock inte" }, 
-{ number: 21, clue: "dyker ofta upp mellan två namn" }, 
-{ number: 22, clue: "vokalen mellan t och v" }, 
-{ number: 23, clue: "först ut i alfabetet" }, 
-{ number: 24, clue: "sci-fi svärdsmästare i Dune" }, 
-{ number: 25, clue: "Bokstavens namn i det svenska alfabetet som ofta används för att beteckna frekvens inom fysiken" }, 
-{ number: 26, clue: "för djupkylning" }, 
-{ number: 27, clue: "Tonstavelsen mellan la och do i den internationella do-re-mi-skalan" }, 
-{ number: 28, clue: "ljuspartikel" }, 
-{ number: 29, clue: "bokstav för det okända" }, 
+{ number: 8, clue: "gäller visst ämne" }, 
+{ number: 9, clue: "rymdburen marvelhjälte" }, 
+{ number: 10, clue: "ser ut som ett utrop med prick" }, 
+{ number: 11, clue: "kaffe för de invigda" }, 
+{ number: 12, clue: "Valutakod för bulgarisk lev" }, 
+{ number: 13, clue: "Avdelning på sjukhuset för nyfödda och mödrar" }, 
+{ number: 16, clue: "Tre vokaler: A, E och O utan mellanrum" }, 
+{ number: 17, clue: "nordisk huvudstad" }, 
+{ number: 18, clue: "ler sällan av rätt anledning" }, 
+{ number: 20, clue: "tvåa bland bokstäverna" }, 
+{ number: 22, clue: "lösa problemet med hunger" }, 
+{ number: 23, clue: "barrväxt med bär" }, 
+{ number: 24, clue: "Tionde bokstaven i alfabetet" }, 
+{ number: 25, clue: "pusselvärld i två och tre dimensioner" }, 
+{ number: 26, clue: "bror till Raistlin" }, 
 ],  
 verticalClues: [
-{ number: 1, clue: "utvecklade poliovaccin" }, 
-{ number: 2, clue: "Förkortning för automatisk trafikkontroll" }, 
-{ number: 3, clue: "Två bokstäver för engelskans football club." }, 
-{ number: 4, clue: "instrument man spelar utan att röra" }, 
-{ number: 5, clue: "byggprogram som råkade bli världens största spel" }, 
-{ number: 6, clue: "Sjubokstavsföljd: A på plats 1 och 6, D på plats 2 och 4, U på plats 3, H på plats 5 och C på plats 7." }, 
-{ number: 7, clue: "ungdomens gudinna" }, 
-{ number: 8, clue: "marvelhjälte som styr väder" }, 
-{ number: 9, clue: "Första bokstäverna i glad, bra, enkel och intressant, skrivna ihop." }, 
-{ number: 11, clue: "K, ett ess i kortleken och landskoden för Förenta staterna utan mellanrum." }, 
-{ number: 13, clue: "Bokstaven mellan O och Q" }, 
-{ number: 16, clue: "när favoritsaken blir bättre" }, 
-{ number: 18, clue: "stenorm större än de flesta tågvagnar" }, 
-{ number: 20, clue: "Vindformad kulle av sand" }, 
-{ number: 21, clue: "Kadaver av ett dött djur" }, 
-{ number: 24, clue: "lugn och ____" }, 
-{ number: 26, clue: "rund vokal" }, 
+{ number: 1, clue: "först ut i alfabetet" }, 
+{ number: 2, clue: "land söder om Algeriet" }, 
+{ number: 3, clue: "Bokstaven efter f" }, 
+{ number: 4, clue: "Padmés hemplanet" }, 
+{ number: 5, clue: "Åttatecknig kod: bokstävernas platser i svenska alfabetet är 15–22–2–19–4–28–6–15." }, 
+{ number: 6, clue: "Talspråklig form av frågeordet ”vad”" }, 
+{ number: 7, clue: "Första bokstaven i alfabetet" }, 
+{ number: 9, clue: "Bokstaven mellan I och K i alfabetet" }, 
+{ number: 10, clue: "motsats till fram" }, 
+{ number: 11, clue: "har mycket kvar att lära" }, 
+{ number: 14, clue: "motsats till stor" }, 
+{ number: 15, clue: "Olay under tyskt namn" }, 
+{ number: 17, clue: "Symbolen för kemiskt grundämne kalium" }, 
+{ number: 19, clue: "föreslår nya eu-lagar" }, 
+{ number: 20, clue: "Kemisk förkortning för natrium" }, 
+{ number: 21, clue: "motsats till nej" }, 
+{ number: 24, clue: "viktigt ljud i motorer" }, 
+{ number: 25, clue: "Bokstaven före N." }, 
 ],
         ai_gen_clues: [
-{ key: "bmr", clue: "Engelskt mått på basal ämnesomsättning, förkortat", confidence: "94" }, 
-{ key: "tnk", clue: "Konsonanterna i «tänk»", confidence: "98" }, 
-{ key: "rc", clue: "Förkortning av engelskans ”remote control”", confidence: "95" }, 
-{ key: "atk", clue: "Förkortning för automatisk trafikkontroll", confidence: "100" }, 
-{ key: "p", clue: "Bokstaven mellan O och Q", confidence: "98" }, 
-{ key: "dyn", clue: "Vindformad kulle av sand", confidence: "98" }, 
-{ key: "fc", clue: "Två bokstäver för engelskans football club.", confidence: "97" }, 
-{ key: "kessus", clue: "K, ett ess i kortleken och landskoden för Förenta staterna utan mellanrum.", confidence: "92" }, 
-{ key: "adudhac", clue: "Sjubokstavsföljd: A på plats 1 och 6, D på plats 2 och 4, U på plats 3, H på plats 5 och C på plats 7.", confidence: "95" }, 
-{ key: "gbei", clue: "Första bokstäverna i glad, bra, enkel och intressant, skrivna ihop.", confidence: "92" }, 
+{ key: "bgn", clue: "Valutakod för bulgarisk lev", confidence: "98" }, 
+{ key: "aeo", clue: "Tre vokaler: A, E och O utan mellanrum", confidence: "99" }, 
+{ key: "ovbsdäfo", clue: "Åttatecknig kod: bokstävernas platser i svenska alfabetet är 15–22–2–19–4–28–6–15.", confidence: "72" }, 
+{ key: "va", clue: "Talspråklig form av frågeordet ”vad”", confidence: "98" }, 
+{ key: "olaz", clue: "Olay under tyskt namn", confidence: "91" }, 
 ]
     };
 
@@ -407,7 +394,7 @@ verticalClues: [
 // Build the grid
 // ------------------------------
 const grid = document.getElementById("grid");
-grid.style.setProperty("--cols", 12);
+grid.style.setProperty("--cols", 10);
 
 for (let r = 0; r < crossword.rows; r++) {
     for (let c = 0; c < crossword.cols; c++) {
@@ -565,7 +552,7 @@ document.getElementById("validateBtn").addEventListener("click", () => {
         //todo: add some kind of celebration?
 
         const storage = loadStorageSet();
-        storage.add("2026-11-15");
+        storage.add("2026-11-17");
         saveStorageSet(storage);
     }
 });

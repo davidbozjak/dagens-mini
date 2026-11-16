@@ -328,63 +328,34 @@
 // Crossword Data Structure
 // ------------------------------
     const crossword = {
-        	cols: 10, 
-	rows: 10, 
+        	cols: 6, 
+	rows: 7, 
 solution: [ 
-		[null, "1", "2", "3", null, "4", "5", "6", "7", null, ],
-		["8", "a", "n", "g", "9", "n", "o", "v", "a", null, ],
-		[null, "10", "i", "11", "j", "a", "v", "a", null, null, ],
-		["12", "b", "g", "n", "13", "b", "b", "14", "15", null, ],
-		["16", "a", "e", "o", "17", "o", "s", "l", "o", null, ],
-		["18", "k", "r", "o", "k", "o", "d", "i", "l", null, ],
-		[null, "19", "20", "b", "21", "22", "ä", "t", "a", null, ],
-		["23", "e", "n", "24", "j", "25", "f", "e", "z", null, ],
-		["26", "c", "a", "r", "a", "m", "o", "n", null, null, ],
-		[null, null, null, null, null, null, null, null, null, null, ],
+		[null, null, "1", "2", "3", null, ],
+		[null, "4", "t", "f", "v", null, ],
+		["5", "b", "r", "e", "e", null, ],
+		[null, "6", "e", "l", "n", null, ],
+		[null, "7", "n", "i", "o", null, ],
+		[null, "8", "d", "x", "m", null, ],
+		[null, null, null, null, null, null, ],
 	],
         horizontalClues: [
-{ number: 8, clue: "gäller visst ämne" }, 
-{ number: 9, clue: "rymdburen marvelhjälte" }, 
-{ number: 10, clue: "ser ut som ett utrop med prick" }, 
-{ number: 11, clue: "kaffe för de invigda" }, 
-{ number: 12, clue: "Valutakod för bulgarisk lev" }, 
-{ number: 13, clue: "Avdelning på sjukhuset för nyfödda och mödrar" }, 
-{ number: 16, clue: "Tre vokaler: A, E och O utan mellanrum" }, 
-{ number: 17, clue: "nordisk huvudstad" }, 
-{ number: 18, clue: "ler sällan av rätt anledning" }, 
-{ number: 20, clue: "tvåa bland bokstäverna" }, 
-{ number: 22, clue: "lösa problemet med hunger" }, 
-{ number: 23, clue: "barrväxt med bär" }, 
-{ number: 24, clue: "Tionde bokstaven i alfabetet" }, 
-{ number: 25, clue: "pusselvärld i två och tre dimensioner" }, 
-{ number: 26, clue: "bror till Raistlin" }, 
+{ number: 4, clue: "Initialerna, skrivna ihop, i uttrycket «tid för vila»." }, 
+{ number: 5, clue: "by i Midgård" }, 
+{ number: 6, clue: "Spansk förkortning för Colombias nationella befrielsearmé" }, 
+{ number: 7, clue: "antal rutor i ett tre-gånger-tre rutnät" }, 
+{ number: 8, clue: "Förkortning för det hostdämpande ämnet dextrometorfan" }, 
 ],  
 verticalClues: [
-{ number: 1, clue: "först ut i alfabetet" }, 
-{ number: 2, clue: "land söder om Algeriet" }, 
-{ number: 3, clue: "Bokstaven efter f" }, 
-{ number: 4, clue: "Padmés hemplanet" }, 
-{ number: 5, clue: "Åttatecknig kod: bokstävernas platser i svenska alfabetet är 15–22–2–19–4–28–6–15." }, 
-{ number: 6, clue: "Talspråklig form av frågeordet ”vad”" }, 
-{ number: 7, clue: "Första bokstaven i alfabetet" }, 
-{ number: 9, clue: "Bokstaven mellan I och K i alfabetet" }, 
-{ number: 10, clue: "motsats till fram" }, 
-{ number: 11, clue: "har mycket kvar att lära" }, 
-{ number: 14, clue: "motsats till stor" }, 
-{ number: 15, clue: "Olay under tyskt namn" }, 
-{ number: 17, clue: "Symbolen för kemiskt grundämne kalium" }, 
-{ number: 19, clue: "föreslår nya eu-lagar" }, 
-{ number: 20, clue: "Kemisk förkortning för natrium" }, 
-{ number: 21, clue: "motsats till nej" }, 
-{ number: 24, clue: "viktigt ljud i motorer" }, 
-{ number: 25, clue: "Bokstaven före N." }, 
+{ number: 1, clue: "något alla gör samtidigt" }, 
+{ number: 2, clue: "youtuber som länge styrde internet" }, 
+{ number: 3, clue: "svart symbiot med humörproblem" }, 
+{ number: 4, clue: "kommer efter a" }, 
 ],
         ai_gen_clues: [
-{ key: "bgn", clue: "Valutakod för bulgarisk lev", confidence: "98" }, 
-{ key: "aeo", clue: "Tre vokaler: A, E och O utan mellanrum", confidence: "99" }, 
-{ key: "ovbsdäfo", clue: "Åttatecknig kod: bokstävernas platser i svenska alfabetet är 15–22–2–19–4–28–6–15.", confidence: "72" }, 
-{ key: "va", clue: "Talspråklig form av frågeordet ”vad”", confidence: "98" }, 
-{ key: "olaz", clue: "Olay under tyskt namn", confidence: "91" }, 
+{ key: "tfv", clue: "Initialerna, skrivna ihop, i uttrycket «tid för vila».", confidence: "98" }, 
+{ key: "eln", clue: "Spansk förkortning för Colombias nationella befrielsearmé", confidence: "92" }, 
+{ key: "dxm", clue: "Förkortning för det hostdämpande ämnet dextrometorfan", confidence: "94" }, 
 ]
     };
 
@@ -394,7 +365,7 @@ verticalClues: [
 // Build the grid
 // ------------------------------
 const grid = document.getElementById("grid");
-grid.style.setProperty("--cols", 10);
+grid.style.setProperty("--cols", 6);
 
 for (let r = 0; r < crossword.rows; r++) {
     for (let c = 0; c < crossword.cols; c++) {
