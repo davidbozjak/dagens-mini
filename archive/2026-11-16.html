@@ -296,7 +296,7 @@
 </head>
 <body>
 
-<h2>Daily SE Mini Monday, 2026-11-16</h2>
+<h2>Daily SE Mini Tuesday, 2026-11-17</h2>
 
 <div id="grid"></div>
 
@@ -328,34 +328,62 @@
 // Crossword Data Structure
 // ------------------------------
     const crossword = {
-        	cols: 6, 
-	rows: 7, 
+        	cols: 10, 
+	rows: 10, 
 solution: [ 
-		[null, null, "1", "2", "3", null, ],
-		[null, "4", "t", "f", "v", null, ],
-		["5", "b", "r", "e", "e", null, ],
-		[null, "6", "e", "l", "n", null, ],
-		[null, "7", "n", "i", "o", null, ],
-		[null, "8", "d", "x", "m", null, ],
-		[null, null, null, null, null, null, ],
+		[null, null, null, "1", "2", "3", null, null, "4", null, ],
+		[null, "5", "6", "f", "i", "g", "7", "8", "g", null, ],
+		["9", "h", "e", "r", "m", "e", "s", "10", "o", null, ],
+		["11", "a", "v", null, "12", "o", "13", "a", "o", null, ],
+		["14", "d", "e", "15", "i", "n", "16", "r", "f", null, ],
+		["17", "d", "18", "19", "r", "o", "b", "b", "y", null, ],
+		["20", "o", "j", "21", "a", "s", "a", "22", null, null, ],
+		["23", "c", "l", "24", "n", "i", "r", "l", null, null, ],
+		["25", "k", "g", null, "26", "s", "n", "o", null, null, ],
+		[null, null, null, null, null, null, null, null, null, null, ],
 	],
         horizontalClues: [
-{ number: 4, clue: "Initialerna, skrivna ihop, i uttrycket «tid för vila»." }, 
-{ number: 5, clue: "by i Midgård" }, 
-{ number: 6, clue: "Spansk förkortning för Colombias nationella befrielsearmé" }, 
-{ number: 7, clue: "antal rutor i ett tre-gånger-tre rutnät" }, 
-{ number: 8, clue: "Förkortning för det hostdämpande ämnet dextrometorfan" }, 
+{ number: 6, clue: "se hänvisning till bilden" }, 
+{ number: 8, clue: "Bokstaven efter f" }, 
+{ number: 9, clue: "rymdskepp med ovanligt mycket övertid" }, 
+{ number: 10, clue: "dyker ofta upp mellan två namn" }, 
+{ number: 11, clue: "motsats till på" }, 
+{ number: 12, clue: "rund vokal" }, 
+{ number: 13, clue: "Blå på japanska, skrivet med latinska bokstäver" }, 
+{ number: 14, clue: "Svenskt pronomen som syftar på flera personer." }, 
+{ number: 15, clue: "motsats till ut" }, 
+{ number: 16, clue: "Förkortning för Riksidrottsförbundet" }, 
+{ number: 17, clue: "bokstav före e" }, 
+{ number: 19, clue: "robot i Förbjuden värld" }, 
+{ number: 20, clue: "hela svenska språkets universallösning" }, 
+{ number: 21, clue: "Släpa sig fram" }, 
+{ number: 23, clue: "vanligt på restaurangnotan" }, 
+{ number: 24, clue: "Ta första bokstaven i vart och ett av orden «nål, igloo, ros, lök»." }, 
+{ number: 25, clue: "viktenhet" }, 
+{ number: 26, clue: "ta utan lov" }, 
 ],  
 verticalClues: [
-{ number: 1, clue: "något alla gör samtidigt" }, 
-{ number: 2, clue: "youtuber som länge styrde internet" }, 
-{ number: 3, clue: "svart symbiot med humörproblem" }, 
-{ number: 4, clue: "kommer efter a" }, 
+{ number: 1, clue: "ofta skrivet framför ett datum" }, 
+{ number: 2, clue: "Lätt töcken i luften" }, 
+{ number: 3, clue: "planet med klonfabriker" }, 
+{ number: 4, clue: "disneys långe hundfigur" }, 
+{ number: 5, clue: "sjökapten med färgstarkt språk" }, 
+{ number: 6, clue: "robot i WALL-E" }, 
+{ number: 7, clue: "ormlik bokstav" }, 
+{ number: 10, clue: "används när jobbet avses" }, 
+{ number: 12, clue: "persiskt land" }, 
+{ number: 16, clue: "inte en lada" }, 
+{ number: 18, clue: "Amerikanskt märke för bomliftar" }, 
+{ number: 22, clue: "svenskt rovdjur" }, 
 ],
         ai_gen_clues: [
-{ key: "tfv", clue: "Initialerna, skrivna ihop, i uttrycket «tid för vila».", confidence: "98" }, 
-{ key: "eln", clue: "Spansk förkortning för Colombias nationella befrielsearmé", confidence: "92" }, 
-{ key: "dxm", clue: "Förkortning för det hostdämpande ämnet dextrometorfan", confidence: "94" }, 
+{ key: "de", clue: "Svenskt pronomen som syftar på flera personer.", confidence: "96" }, 
+{ key: "jlg", clue: "Amerikanskt märke för bomliftar", confidence: "72" }, 
+{ key: "asa", clue: "Släpa sig fram", confidence: "94" }, 
+{ key: "nirl", clue: "Ta första bokstaven i vart och ett av orden «nål, igloo, ros, lök».", confidence: "98" }, 
+{ key: "im", clue: "Lätt töcken i luften", confidence: "94" }, 
+{ key: "ao", clue: "Blå på japanska, skrivet med latinska bokstäver", confidence: "95" }, 
+{ key: "rf", clue: "Förkortning för Riksidrottsförbundet", confidence: "98" }, 
 ]
     };
 
@@ -365,7 +393,7 @@ verticalClues: [
 // Build the grid
 // ------------------------------
 const grid = document.getElementById("grid");
-grid.style.setProperty("--cols", 6);
+grid.style.setProperty("--cols", 10);
 
 for (let r = 0; r < crossword.rows; r++) {
     for (let c = 0; c < crossword.cols; c++) {
@@ -523,7 +551,7 @@ document.getElementById("validateBtn").addEventListener("click", () => {
         //todo: add some kind of celebration?
 
         const storage = loadStorageSet();
-        storage.add("2026-11-16");
+        storage.add("2026-11-17");
         saveStorageSet(storage);
     }
 });
