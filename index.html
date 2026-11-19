@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Daily SE Mini Thursday, 2026-11-19</title>
+    <title>Daily SE Mini Friday, 2026-11-20</title>
 
     <style>
     :root {
@@ -296,7 +296,7 @@
 </head>
 <body>
 
-<h2>Daily SE Mini Thursday, 2026-11-19</h2>
+<h2>Daily SE Mini Friday, 2026-11-20</h2>
 
 <div id="grid"></div>
 
@@ -328,60 +328,79 @@
 // Crossword Data Structure
 // ------------------------------
     const crossword = {
-        	cols: 10, 
-	rows: 10, 
+        	cols: 12, 
+	rows: 12, 
 solution: [ 
-		[null, "1", "2", "3", null, "4", "5", null, null, null, ],
-		["6", "s", "a", "x", "7", "a", "f", "8", null, null, ],
-		["9", "m", "u", "s", "10", "x", "a", "u", null, null, ],
-		["11", "i", "12", "13", "b", "i", "r", "k", null, null, ],
-		["14", "t", "l", "15", "o", "s", "t", null, null, null, ],
-		["16", "h", "o", "t", "h", "17", "18", "19", null, null, ],
-		[null, "20", "c", "u", "r", "s", "o", "r", "21", null, ],
-		[null, "22", "k", "g", "23", "n", "i", "k", "e", null, ],
-		[null, "24", "e", "25", "r", "o", "b", "u", "r", null, ],
-		[null, null, null, null, null, null, null, null, null, null, ],
+		[null, null, "1", null, null, "2", "3", "4", null, null, null, null, ],
+		[null, "5", "k", "6", "7", "n", "e", "j", "8", "9", null, null, ],
+		["10", "g", "i", "f", "t", "11", "t", "u", "n", "g", null, null, ],
+		["12", "r", "r", "a", "j", null, "13", "n", "e", "r", "14", null, ],
+		["15", "a", "k", "k", "u", "16", "m", "o", "r", "b", "o", null, ],
+		["17", "n", "18", "e", "g", "19", "20", "21", "a", "b", "b", null, ],
+		[null, "22", "t", "23", "o", "s", "v", "24", "k", "y", "l", null, ],
+		["25", "m", "m", "26", "s", "i", "27", "k", "a", "p", null, null, ],
+		["28", "a", "29", "m", "e", "t", "a", "l", null, null, null, null, ],
+		["30", "r", "31", "f", "x", "a", "a", "o", "32", "33", null, null, ],
+		["34", "s", "o", "l", "35", "r", "a", "n", "c", "h", null, null, ],
+		[null, null, null, null, null, null, null, null, null, null, null, null, ],
 	],
         horizontalClues: [
-{ number: 6, clue: "pappersklippare" }, 
-{ number: 7, clue: "Internetfenomen som betonar något extremt" }, 
-{ number: 9, clue: "litet gnagardjur" }, 
-{ number: 10, clue: "Internationell kod för ett troyuns guld" }, 
-{ number: 11, clue: "ser ut som ett utrop med prick" }, 
-{ number: 13, clue: "ronjas vän i skogen" }, 
-{ number: 14, clue: "Kemisk beteckning för tallium" }, 
-{ number: 15, clue: "på smörgås" }, 
-{ number: 16, clue: "isplanet i Star Wars" }, 
-{ number: 20, clue: "ai-assisterad kodredigerare" }, 
-{ number: 22, clue: "viktenhet" }, 
-{ number: 23, clue: "segerns gudinna" }, 
-{ number: 24, clue: "sveriges vanligaste vokal" }, 
-{ number: 25, clue: "fiktiv flygpionjär med storhetsvansinne" }, 
+{ number: 5, clue: "Symbolen för kemiskt grundämne kalium" }, 
+{ number: 7, clue: "inte imponerad av förslaget" }, 
+{ number: 10, clue: "inte bara något dödligt" }, 
+{ number: 11, clue: "motsats till lätt" }, 
+{ number: 12, clue: "Två R följda av ett smärtutrop, hopskrivet." }, 
+{ number: 13, clue: "motsats till upp" }, 
+{ number: 15, clue: "Uppladdningsbart batteri på tyska" }, 
+{ number: 16, clue: "nyhetsankare som ogillar mänskligheten" }, 
+{ number: 17, clue: "Kemisk symbol för kväve" }, 
+{ number: 18, clue: "Engelsk förkortning för ”for example”, skriven utan punkter." }, 
+{ number: 21, clue: "industrikoncern med svenska rötter" }, 
+{ number: 22, clue: "korsets favoritbokstav" }, 
+{ number: 23, clue: "listan fortsätter i samma stil" }, 
+{ number: 24, clue: "kall matförvaring" }, 
+{ number: 25, clue: "listan fortsätter lite till" }, 
+{ number: 26, clue: "Tonstavelsen mellan la och do i den internationella do-re-mi-skalan" }, 
+{ number: 27, clue: "del av en bok" }, 
+{ number: 28, clue: "först ut i alfabetet" }, 
+{ number: 29, clue: "när volymratten blir en rekommendation" }, 
+{ number: 30, clue: "bokstav som många skorr" }, 
+{ number: 31, clue: "Sjätte bokstaven i alfabetet, romerskt tecken för tio, första vokalen två gånger och sedan sista vokalen." }, 
+{ number: 34, clue: "solgud i Rom" }, 
+{ number: 35, clue: "amerikansk dressingfavorit" }, 
 ],  
 verticalClues: [
-{ number: 1, clue: "experimentell ekonomipristagare" }, 
-{ number: 2, clue: "Kemiskt tecken för guld" }, 
-{ number: 3, clue: "Engelsk förkortning för extra small" }, 
-{ number: 4, clue: "skapare av nätverkskameror" }, 
-{ number: 5, clue: "fortsättning på hastighetsmätaren" }, 
-{ number: 8, clue: "Storbritanniens två bokstäver" }, 
-{ number: 10, clue: "nobelpristagare inom atomfysik" }, 
-{ number: 12, clue: "filosof bakom tabula rasa" }, 
-{ number: 15, clue: "Engelskt verb: dra hårt i något." }, 
-{ number: 17, clue: "ta utan lov" }, 
-{ number: 18, clue: "Begynnelsebokstäverna i «overall, innebandy, bil»" }, 
-{ number: 19, clue: "Förkortning för Revolutionär Kommunistisk Ungdom" }, 
-{ number: 21, clue: "Objektsform av ni" }, 
-{ number: 23, clue: "bokstav som många skorr" }, 
+{ number: 1, clue: "sci-fi kapten på Enterprise" }, 
+{ number: 2, clue: "Bokstaven efter M i svenska alfabetet" }, 
+{ number: 3, clue: "Fransk motsvarighet till svenskans ”och”." }, 
+{ number: 4, clue: "gudarnas drottning" }, 
+{ number: 5, clue: "vanligt julträd" }, 
+{ number: 6, clue: "något som inte är vad det verkar" }, 
+{ number: 7, clue: "antal svarta rutor på ett schackbräde delat med två" }, 
+{ number: 8, clue: "mörk stad i Dragonlance" }, 
+{ number: 9, clue: "Sätt ihop gemenerna g och r, därefter två b och slutligen y och p." }, 
+{ number: 13, clue: "Bokstaven före N." }, 
+{ number: 14, clue: "Förkortning för obligatorisk, ofta i en kursplan" }, 
+{ number: 18, clue: "Symbolen för rättigheterna på en cool uppfinning" }, 
+{ number: 19, clue: "indiskt instrument med många strängar" }, 
+{ number: 20, clue: "halva w" }, 
+{ number: 22, clue: "Planet och månad" }, 
+{ number: 24, clue: "genetisk kopia" }, 
+{ number: 26, clue: "fler personer av samma sort" }, 
+{ number: 27, clue: "liten batteri" }, 
+{ number: 31, clue: "dyker ofta upp mellan två namn" }, 
+{ number: 32, clue: "vanlig i engelsk stavning" }, 
+{ number: 33, clue: "gömmer sig i hej" }, 
 ],
         ai_gen_clues: [
-{ key: "tl", clue: "Kemisk beteckning för tallium", confidence: "100" }, 
-{ key: "xs", clue: "Engelsk förkortning för extra small", confidence: "98" }, 
-{ key: "tug", clue: "Engelskt verb: dra hårt i något.", confidence: "96" }, 
-{ key: "xau", clue: "Internationell kod för ett troyuns guld", confidence: "88" }, 
-{ key: "oib", clue: "Begynnelsebokstäverna i «overall, innebandy, bil»", confidence: "99" }, 
-{ key: "rku", clue: "Förkortning för Revolutionär Kommunistisk Ungdom", confidence: "100" }, 
-{ key: "er", clue: "Objektsform av ni", confidence: "98" }, 
+{ key: "rraj", clue: "Två R följda av ett smärtutrop, hopskrivet.", confidence: "91" }, 
+{ key: "akku", clue: "Uppladdningsbart batteri på tyska", confidence: "96" }, 
+{ key: "n", clue: "Kemisk symbol för kväve", confidence: "99" }, 
+{ key: "eg", clue: "Engelsk förkortning för ”for example”, skriven utan punkter.", confidence: "98" }, 
+{ key: "fxaao", clue: "Sjätte bokstaven i alfabetet, romerskt tecken för tio, första vokalen två gånger och sedan sista vokalen.", confidence: "78" }, 
+{ key: "et", clue: "Fransk motsvarighet till svenskans ”och”.", confidence: "99" }, 
+{ key: "grbbyp", clue: "Sätt ihop gemenerna g och r, därefter två b och slutligen y och p.", confidence: "98" }, 
+{ key: "obl", clue: "Förkortning för obligatorisk, ofta i en kursplan", confidence: "96" }, 
 ]
     };
 
@@ -391,7 +410,7 @@ verticalClues: [
 // Build the grid
 // ------------------------------
 const grid = document.getElementById("grid");
-grid.style.setProperty("--cols", 10);
+grid.style.setProperty("--cols", 12);
 
 for (let r = 0; r < crossword.rows; r++) {
     for (let c = 0; c < crossword.cols; c++) {
@@ -549,7 +568,7 @@ document.getElementById("validateBtn").addEventListener("click", () => {
         //todo: add some kind of celebration?
 
         const storage = loadStorageSet();
-        storage.add("2026-11-19");
+        storage.add("2026-11-20");
         saveStorageSet(storage);
     }
 });
