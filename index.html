@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Daily SE Mini Friday, 2026-11-20</title>
+    <title>Daily SE Mini Saturday, 2026-11-21</title>
 
     <style>
     :root {
@@ -296,7 +296,7 @@
 </head>
 <body>
 
-<h2>Daily SE Mini Friday, 2026-11-20</h2>
+<h2>Daily SE Mini Saturday, 2026-11-21</h2>
 
 <div id="grid"></div>
 
@@ -328,79 +328,113 @@
 // Crossword Data Structure
 // ------------------------------
     const crossword = {
-        	cols: 12, 
-	rows: 12, 
+        	cols: 14, 
+	rows: 14, 
 solution: [ 
-		[null, null, "1", null, null, "2", "3", "4", null, null, null, null, ],
-		[null, "5", "k", "6", "7", "n", "e", "j", "8", "9", null, null, ],
-		["10", "g", "i", "f", "t", "11", "t", "u", "n", "g", null, null, ],
-		["12", "r", "r", "a", "j", null, "13", "n", "e", "r", "14", null, ],
-		["15", "a", "k", "k", "u", "16", "m", "o", "r", "b", "o", null, ],
-		["17", "n", "18", "e", "g", "19", "20", "21", "a", "b", "b", null, ],
-		[null, "22", "t", "23", "o", "s", "v", "24", "k", "y", "l", null, ],
-		["25", "m", "m", "26", "s", "i", "27", "k", "a", "p", null, null, ],
-		["28", "a", "29", "m", "e", "t", "a", "l", null, null, null, null, ],
-		["30", "r", "31", "f", "x", "a", "a", "o", "32", "33", null, null, ],
-		["34", "s", "o", "l", "35", "r", "a", "n", "c", "h", null, null, ],
-		[null, null, null, null, null, null, null, null, null, null, null, null, ],
+		[null, null, "1", "2", "3", null, null, "4", null, "5", "6", "7", null, null, ],
+		[null, "8", "e", "m", "a", "9", "10", "b", "11", "f", "e", "m", null, null, ],
+		[null, "12", "r", "13", "r", "n", "14", "r", "15", "i", "t", "16", null, null, ],
+		[null, "17", "o", "18", "t", "o", "t", "o", "19", "k", "å", "k", "20", null, ],
+		["21", "s", "s", "f", "i", "b", "m", "m", "22", "a", "23", "r", "a", null, ],
+		["24", "h", "25", "i", "c", "e", "26", "27", "28", "29", "30", "y", null, null, ],
+		["31", "i", "32", "g", "u", "l", "d", "k", "l", "i", "m", "p", "33", null, ],
+		["34", "i", "h", "35", "n", "36", "r", "i", "s", "o", "t", "t", "o", null, ],
+		["37", "t", "y", "f", "o", "n", "38", "f", "d", "39", "40", "o", "b", null, ],
+		["41", "a", "42", "r", "43", "r", "o", "44", "e", "v", null, "45", "a", null, ],
+		["46", "k", "47", "i", "d", "48", "49", "z", "o", "e", "50", "m", "m", null, ],
+		["51", "e", "e", "s", "52", "v", "i", "c", "t", "o", "r", "i", "a", null, ],
+		[null, null, "53", "k", "u", "d", "u", null, null, "54", "e", "l", null, null, ],
+		[null, null, null, null, null, null, null, null, null, null, null, null, null, null, ],
 	],
         horizontalClues: [
-{ number: 5, clue: "Symbolen för kemiskt grundämne kalium" }, 
-{ number: 7, clue: "inte imponerad av förslaget" }, 
-{ number: 10, clue: "inte bara något dödligt" }, 
-{ number: 11, clue: "motsats till lätt" }, 
-{ number: 12, clue: "Två R följda av ett smärtutrop, hopskrivet." }, 
-{ number: 13, clue: "motsats till upp" }, 
-{ number: 15, clue: "Uppladdningsbart batteri på tyska" }, 
-{ number: 16, clue: "nyhetsankare som ogillar mänskligheten" }, 
-{ number: 17, clue: "Kemisk symbol för kväve" }, 
-{ number: 18, clue: "Engelsk förkortning för ”for example”, skriven utan punkter." }, 
-{ number: 21, clue: "industrikoncern med svenska rötter" }, 
-{ number: 22, clue: "korsets favoritbokstav" }, 
-{ number: 23, clue: "listan fortsätter i samma stil" }, 
-{ number: 24, clue: "kall matförvaring" }, 
-{ number: 25, clue: "listan fortsätter lite till" }, 
-{ number: 26, clue: "Tonstavelsen mellan la och do i den internationella do-re-mi-skalan" }, 
-{ number: 27, clue: "del av en bok" }, 
-{ number: 28, clue: "först ut i alfabetet" }, 
-{ number: 29, clue: "när volymratten blir en rekommendation" }, 
-{ number: 30, clue: "bokstav som många skorr" }, 
-{ number: 31, clue: "Sjätte bokstaven i alfabetet, romerskt tecken för tio, första vokalen två gånger och sedan sista vokalen." }, 
-{ number: 34, clue: "solgud i Rom" }, 
-{ number: 35, clue: "amerikansk dressingfavorit" }, 
+{ number: 8, clue: "godkänner läkemedel i eu" }, 
+{ number: 10, clue: "kommer efter a" }, 
+{ number: 11, clue: "antal olympiska ringar" }, 
+{ number: 12, clue: "viktigt ljud i motorer" }, 
+{ number: 13, clue: "Kemisk symbol för grundämnet radon" }, 
+{ number: 14, clue: "bokstav som många skorr" }, 
+{ number: 15, clue: "förkortning för pasta-landet" }, 
+{ number: 17, clue: "vokal formad som sig själv" }, 
+{ number: 18, clue: "följde med till landet Oz" }, 
+{ number: 19, clue: "hem med väggar" }, 
+{ number: 21, clue: "Tre hopslagna förkortningar: nazistisk organisation, Folket i Bild och ”med mera”." }, 
+{ number: 22, clue: "alfabetets etta" }, 
+{ number: 23, clue: "solguden" }, 
+{ number: 24, clue: "gömmer sig i hej" }, 
+{ number: 25, clue: "Engelskt ord för is" }, 
+{ number: 30, clue: "sista vanliga vokalen" }, 
+{ number: 31, clue: "liten vokal med prick" }, 
+{ number: 32, clue: "familjens mest värdefulla tillgång" }, 
+{ number: 34, clue: "Skrämt utrop" }, 
+{ number: 35, clue: "Kemisk symbol för kväve" }, 
+{ number: 36, clue: "ris som kräver tålamod" }, 
+{ number: 37, clue: "monster och jättedrake" }, 
+{ number: 38, clue: "någon som haft rollen tidigare" }, 
+{ number: 40, clue: "Förkortning för obekväm arbetstid" }, 
+{ number: 41, clue: "först ut i alfabetet" }, 
+{ number: 42, clue: "Bokstaven före S i alfabetet" }, 
+{ number: 43, clue: "lugn och ____" }, 
+{ number: 44, clue: "när något kanske händer" }, 
+{ number: 45, clue: "Svenska alfabetets första bokstav" }, 
+{ number: 46, clue: "Symbolen för kemiskt grundämne kalium" }, 
+{ number: 47, clue: "Kort med ditt namn" }, 
+{ number: 49, clue: "sci-fi styrkvinna i Firefly" }, 
+{ number: 50, clue: "listan fortsätter lite till" }, 
+{ number: 51, clue: "inre marknad utan fullt medlemskap" }, 
+{ number: 52, clue: "industrialisering för kartälskare" }, 
+{ number: 53, clue: "en av savannens mest eleganta växtätare" }, 
+{ number: 54, clue: "Kraften som får lampan att lysa" }, 
 ],  
 verticalClues: [
-{ number: 1, clue: "sci-fi kapten på Enterprise" }, 
-{ number: 2, clue: "Bokstaven efter M i svenska alfabetet" }, 
-{ number: 3, clue: "Fransk motsvarighet till svenskans ”och”." }, 
-{ number: 4, clue: "gudarnas drottning" }, 
-{ number: 5, clue: "vanligt julträd" }, 
-{ number: 6, clue: "något som inte är vad det verkar" }, 
-{ number: 7, clue: "antal svarta rutor på ett schackbräde delat med två" }, 
-{ number: 8, clue: "mörk stad i Dragonlance" }, 
-{ number: 9, clue: "Sätt ihop gemenerna g och r, därefter två b och slutligen y och p." }, 
-{ number: 13, clue: "Bokstaven före N." }, 
-{ number: 14, clue: "Förkortning för obligatorisk, ofta i en kursplan" }, 
-{ number: 18, clue: "Symbolen för rättigheterna på en cool uppfinning" }, 
-{ number: 19, clue: "indiskt instrument med många strängar" }, 
-{ number: 20, clue: "halva w" }, 
-{ number: 22, clue: "Planet och månad" }, 
-{ number: 24, clue: "genetisk kopia" }, 
-{ number: 26, clue: "fler personer av samma sort" }, 
-{ number: 27, clue: "liten batteri" }, 
-{ number: 31, clue: "dyker ofta upp mellan två namn" }, 
-{ number: 32, clue: "vanlig i engelsk stavning" }, 
-{ number: 33, clue: "gömmer sig i hej" }, 
+{ number: 1, clue: "kärlekens gud" }, 
+{ number: 2, clue: "Bokstaven före N." }, 
+{ number: 3, clue: "legendarisk fågel från isen" }, 
+{ number: 4, clue: "flytande halogen" }, 
+{ number: 5, clue: "nationalsport i svensk form" }, 
+{ number: 6, clue: "Bokstaven efter D följd av ett litet vattendrag, hopskrivet" }, 
+{ number: 7, clue: "mått för lite längre saker" }, 
+{ number: 9, clue: "instiftade nobelpriset" }, 
+{ number: 14, clue: "Symbolen för rättigheterna på en cool uppfinning" }, 
+{ number: 16, clue: "superhjälte med koppel" }, 
+{ number: 17, clue: "japansk matsvamp" }, 
+{ number: 18, clue: "se hänvisning till bilden" }, 
+{ number: 20, clue: "Första bokstaven i alfabetet" }, 
+{ number: 26, clue: "Så förkortas doktor ofta i en titel" }, 
+{ number: 27, clue: "grön assistent med oändligt tålamod" }, 
+{ number: 28, clue: "Bokstavsföljden som fås av engelskans ”oldest” enligt ordningen 2–5–3–4–1–6." }, 
+{ number: 29, clue: "Jupiters vulkaniska måne" }, 
+{ number: 30, clue: "Symbol för megaton" }, 
+{ number: 32, clue: "människokroppens stortsa organ" }, 
+{ number: 33, clue: "nobelpristagare och USA-president" }, 
+{ number: 35, clue: "inte en idrottshall" }, 
+{ number: 36, clue: "identifierar rätt rad i listan" }, 
+{ number: 38, clue: "dyker ofta upp mellan två namn" }, 
+{ number: 39, clue: "googles videogenerator" }, 
+{ number: 43, clue: "bokstav före e" }, 
+{ number: 44, clue: "Bokstaven efter Y följd av bokstaven efter B." }, 
+{ number: 45, clue: "tio kilometer i Sverige" }, 
+{ number: 47, clue: "vokalernas arbetshäst" }, 
+{ number: 48, clue: "Förkortning för verkställande direktör" }, 
+{ number: 49, clue: "K-popstjärnan Lee Ji-euns två bokstäver långa artistnamn" }, 
+{ number: 50, clue: "Solmisationens tonstavelse efter do" }, 
+{ number: 52, clue: "vokal efter t" }, 
 ],
         ai_gen_clues: [
-{ key: "rraj", clue: "Två R följda av ett smärtutrop, hopskrivet.", confidence: "91" }, 
-{ key: "akku", clue: "Uppladdningsbart batteri på tyska", confidence: "96" }, 
-{ key: "n", clue: "Kemisk symbol för kväve", confidence: "99" }, 
-{ key: "eg", clue: "Engelsk förkortning för ”for example”, skriven utan punkter.", confidence: "98" }, 
-{ key: "fxaao", clue: "Sjätte bokstaven i alfabetet, romerskt tecken för tio, första vokalen två gånger och sedan sista vokalen.", confidence: "78" }, 
-{ key: "et", clue: "Fransk motsvarighet till svenskans ”och”.", confidence: "99" }, 
-{ key: "grbbyp", clue: "Sätt ihop gemenerna g och r, därefter två b och slutligen y och p.", confidence: "98" }, 
-{ key: "obl", clue: "Förkortning för obligatorisk, ofta i en kursplan", confidence: "96" }, 
+{ key: "ssfibmm", clue: "Tre hopslagna förkortningar: nazistisk organisation, Folket i Bild och ”med mera”.", confidence: "95" }, 
+{ key: "ih", clue: "Skrämt utrop", confidence: "82" }, 
+{ key: "ice", clue: "Engelskt ord för is", confidence: "100" }, 
+{ key: "r", clue: "Bokstaven före S i alfabetet", confidence: "99" }, 
+{ key: "vd", clue: "Förkortning för verkställande direktör", confidence: "98" }, 
+{ key: "dr", clue: "Så förkortas doktor ofta i en titel", confidence: "98" }, 
+{ key: "iu", clue: "K-popstjärnan Lee Ji-euns två bokstäver långa artistnamn", confidence: "98" }, 
+{ key: "zc", clue: "Bokstaven efter Y följd av bokstaven efter B.", confidence: "96" }, 
+{ key: "lsdeot", clue: "Bokstavsföljden som fås av engelskans ”oldest” enligt ordningen 2–5–3–4–1–6.", confidence: "94" }, 
+{ key: "io", clue: "Jupiters vulkaniska måne", confidence: "98" }, 
+{ key: "etå", clue: "Bokstaven efter D följd av ett litet vattendrag, hopskrivet", confidence: "96" }, 
+{ key: "mt", clue: "Symbol för megaton", confidence: "96" }, 
+{ key: "ob", clue: "Förkortning för obekväm arbetstid", confidence: "99" }, 
+{ key: "re", clue: "Solmisationens tonstavelse efter do", confidence: "98" }, 
+{ key: "a", clue: "Svenska alfabetets första bokstav", confidence: "98" }, 
 ]
     };
 
@@ -410,7 +444,7 @@ verticalClues: [
 // Build the grid
 // ------------------------------
 const grid = document.getElementById("grid");
-grid.style.setProperty("--cols", 12);
+grid.style.setProperty("--cols", 14);
 
 for (let r = 0; r < crossword.rows; r++) {
     for (let c = 0; c < crossword.cols; c++) {
@@ -568,7 +602,7 @@ document.getElementById("validateBtn").addEventListener("click", () => {
         //todo: add some kind of celebration?
 
         const storage = loadStorageSet();
-        storage.add("2026-11-20");
+        storage.add("2026-11-21");
         saveStorageSet(storage);
     }
 });
