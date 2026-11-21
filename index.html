@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Daily SE Mini Saturday, 2026-11-21</title>
+    <title>Daily SE Mini Sunday, 2026-11-22</title>
 
     <style>
     :root {
@@ -296,7 +296,7 @@
 </head>
 <body>
 
-<h2>Daily SE Mini Saturday, 2026-11-21</h2>
+<h2>Daily SE Mini Sunday, 2026-11-22</h2>
 
 <div id="grid"></div>
 
@@ -328,113 +328,81 @@
 // Crossword Data Structure
 // ------------------------------
     const crossword = {
-        	cols: 14, 
-	rows: 14, 
+        	cols: 12, 
+	rows: 12, 
 solution: [ 
-		[null, null, "1", "2", "3", null, null, "4", null, "5", "6", "7", null, null, ],
-		[null, "8", "e", "m", "a", "9", "10", "b", "11", "f", "e", "m", null, null, ],
-		[null, "12", "r", "13", "r", "n", "14", "r", "15", "i", "t", "16", null, null, ],
-		[null, "17", "o", "18", "t", "o", "t", "o", "19", "k", "å", "k", "20", null, ],
-		["21", "s", "s", "f", "i", "b", "m", "m", "22", "a", "23", "r", "a", null, ],
-		["24", "h", "25", "i", "c", "e", "26", "27", "28", "29", "30", "y", null, null, ],
-		["31", "i", "32", "g", "u", "l", "d", "k", "l", "i", "m", "p", "33", null, ],
-		["34", "i", "h", "35", "n", "36", "r", "i", "s", "o", "t", "t", "o", null, ],
-		["37", "t", "y", "f", "o", "n", "38", "f", "d", "39", "40", "o", "b", null, ],
-		["41", "a", "42", "r", "43", "r", "o", "44", "e", "v", null, "45", "a", null, ],
-		["46", "k", "47", "i", "d", "48", "49", "z", "o", "e", "50", "m", "m", null, ],
-		["51", "e", "e", "s", "52", "v", "i", "c", "t", "o", "r", "i", "a", null, ],
-		[null, null, "53", "k", "u", "d", "u", null, null, "54", "e", "l", null, null, ],
-		[null, null, null, null, null, null, null, null, null, null, null, null, null, null, ],
+		[null, "1", "2", null, null, "3", "4", "5", "6", null, null, null, ],
+		["7", "h", "h", "8", "9", "h", "ö", "f", "t", "10", "11", null, ],
+		["12", "i", "o", "l", "b", "y", null, "13", "r", "i", "k", null, ],
+		["14", "n", "j", "o", "r", "d", "15", "v", "e", "o", "g", null, ],
+		["16", "k", "17", "r", "a", "r", "18", "a", "l", "19", "20", null, ],
+		[null, "21", "t", "e", "g", "a", "a", "r", "l", "d", "f", null, ],
+		["22", "s", "i", "23", "e", "24", "t", "g", "e", "a", "a", null, ],
+		["25", "h", "o", "j", "26", "i", "l", "e", "b", "r", "u", null, ],
+		["27", "r", "28", "u", "n", "k", "a", "n", "o", "w", "n", null, ],
+		["29", "e", "d", "i", "30", "e", "s", "31", "r", "i", "u", null, ],
+		["32", "k", "r", "e", "t", "a", null, "33", "g", "n", "s", null, ],
+		[null, null, null, null, null, null, null, null, null, null, null, null, ],
 	],
         horizontalClues: [
-{ number: 8, clue: "godkänner läkemedel i eu" }, 
-{ number: 10, clue: "kommer efter a" }, 
-{ number: 11, clue: "antal olympiska ringar" }, 
-{ number: 12, clue: "viktigt ljud i motorer" }, 
-{ number: 13, clue: "Kemisk symbol för grundämnet radon" }, 
-{ number: 14, clue: "bokstav som många skorr" }, 
-{ number: 15, clue: "förkortning för pasta-landet" }, 
-{ number: 17, clue: "vokal formad som sig själv" }, 
-{ number: 18, clue: "följde med till landet Oz" }, 
-{ number: 19, clue: "hem med väggar" }, 
-{ number: 21, clue: "Tre hopslagna förkortningar: nazistisk organisation, Folket i Bild och ”med mera”." }, 
-{ number: 22, clue: "alfabetets etta" }, 
-{ number: 23, clue: "solguden" }, 
-{ number: 24, clue: "gömmer sig i hej" }, 
-{ number: 25, clue: "Engelskt ord för is" }, 
-{ number: 30, clue: "sista vanliga vokalen" }, 
-{ number: 31, clue: "liten vokal med prick" }, 
-{ number: 32, clue: "familjens mest värdefulla tillgång" }, 
-{ number: 34, clue: "Skrämt utrop" }, 
-{ number: 35, clue: "Kemisk symbol för kväve" }, 
-{ number: 36, clue: "ris som kräver tålamod" }, 
-{ number: 37, clue: "monster och jättedrake" }, 
-{ number: 38, clue: "någon som haft rollen tidigare" }, 
-{ number: 40, clue: "Förkortning för obekväm arbetstid" }, 
-{ number: 41, clue: "först ut i alfabetet" }, 
-{ number: 42, clue: "Bokstaven före S i alfabetet" }, 
-{ number: 43, clue: "lugn och ____" }, 
-{ number: 44, clue: "när något kanske händer" }, 
-{ number: 45, clue: "Svenska alfabetets första bokstav" }, 
-{ number: 46, clue: "Symbolen för kemiskt grundämne kalium" }, 
-{ number: 47, clue: "Kort med ditt namn" }, 
-{ number: 49, clue: "sci-fi styrkvinna i Firefly" }, 
-{ number: 50, clue: "listan fortsätter lite till" }, 
-{ number: 51, clue: "inre marknad utan fullt medlemskap" }, 
-{ number: 52, clue: "industrialisering för kartälskare" }, 
-{ number: 53, clue: "en av savannens mest eleganta växtätare" }, 
-{ number: 54, clue: "Kraften som får lampan att lysa" }, 
+{ number: 7, clue: "Alfabetets åttonde bokstav, skriven två gånger med gemener." }, 
+{ number: 9, clue: "del av skelettet" }, 
+{ number: 12, clue: "Ta begynnelsebokstäverna i igelkott, ost, lök, båt och yxa." }, 
+{ number: 13, clue: "slipper titta på prislappen" }, 
+{ number: 14, clue: "gud över havet" }, 
+{ number: 15, clue: "Medicinsk förkortning för vertikal elektro-okulografi" }, 
+{ number: 16, clue: "Symbolen för kemiskt grundämne kalium" }, 
+{ number: 17, clue: "Ovanlig" }, 
+{ number: 18, clue: "Träd med långa hängande grenar och mjuka blad" }, 
+{ number: 21, clue: "Nio tecken som tillsammans saknar tydlig språklig mening." }, 
+{ number: 22, clue: "Tonstavelsen mellan la och do i den internationella do-re-mi-skalan" }, 
+{ number: 23, clue: "sveriges vanligaste vokal" }, 
+{ number: 24, clue: "Det engelska ordet för agat, fast bokstäverna står i fel ordning" }, 
+{ number: 25, clue: "motorcykel i vardagstal" }, 
+{ number: 26, clue: "Skriv bokstäverna i, l, e, b, r, u efter varandra i den ordningen" }, 
+{ number: 27, clue: "viktigt ljud i motorer" }, 
+{ number: 28, clue: "mannen bakom PUBG började här" }, 
+{ number: 29, clue: "ai ombord på Normandy" }, 
+{ number: 30, clue: "Spaniens toppdomän på internet" }, 
+{ number: 31, clue: "Flod på katalanska" }, 
+{ number: 32, clue: "ö med minotauren" }, 
+{ number: 33, clue: "G, N och S hopskrivna" }, 
 ],  
 verticalClues: [
-{ number: 1, clue: "kärlekens gud" }, 
-{ number: 2, clue: "Bokstaven före N." }, 
-{ number: 3, clue: "legendarisk fågel från isen" }, 
-{ number: 4, clue: "flytande halogen" }, 
-{ number: 5, clue: "nationalsport i svensk form" }, 
-{ number: 6, clue: "Bokstaven efter D följd av ett litet vattendrag, hopskrivet" }, 
-{ number: 7, clue: "mått för lite längre saker" }, 
-{ number: 9, clue: "instiftade nobelpriset" }, 
-{ number: 14, clue: "Symbolen för rättigheterna på en cool uppfinning" }, 
-{ number: 16, clue: "superhjälte med koppel" }, 
-{ number: 17, clue: "japansk matsvamp" }, 
-{ number: 18, clue: "se hänvisning till bilden" }, 
-{ number: 20, clue: "Första bokstaven i alfabetet" }, 
-{ number: 26, clue: "Så förkortas doktor ofta i en titel" }, 
-{ number: 27, clue: "grön assistent med oändligt tålamod" }, 
-{ number: 28, clue: "Bokstavsföljden som fås av engelskans ”oldest” enligt ordningen 2–5–3–4–1–6." }, 
-{ number: 29, clue: "Jupiters vulkaniska måne" }, 
-{ number: 30, clue: "Symbol för megaton" }, 
-{ number: 32, clue: "människokroppens stortsa organ" }, 
-{ number: 33, clue: "nobelpristagare och USA-president" }, 
-{ number: 35, clue: "inte en idrottshall" }, 
-{ number: 36, clue: "identifierar rätt rad i listan" }, 
-{ number: 38, clue: "dyker ofta upp mellan två namn" }, 
-{ number: 39, clue: "googles videogenerator" }, 
-{ number: 43, clue: "bokstav före e" }, 
-{ number: 44, clue: "Bokstaven efter Y följd av bokstaven efter B." }, 
-{ number: 45, clue: "tio kilometer i Sverige" }, 
-{ number: 47, clue: "vokalernas arbetshäst" }, 
-{ number: 48, clue: "Förkortning för verkställande direktör" }, 
-{ number: 49, clue: "K-popstjärnan Lee Ji-euns två bokstäver långa artistnamn" }, 
-{ number: 50, clue: "Solmisationens tonstavelse efter do" }, 
-{ number: 52, clue: "vokal efter t" }, 
+{ number: 1, clue: "bär vatten" }, 
+{ number: 2, clue: "två hjul och dåliga väderval" }, 
+{ number: 3, clue: "månghövdat monster" }, 
+{ number: 4, clue: "finns i öl" }, 
+{ number: 5, clue: "betecknar frekvens inom fysiken" }, 
+{ number: 6, clue: "Sveriges sydligaste stad" }, 
+{ number: 8, clue: "datas ondskefulle bror" }, 
+{ number: 9, clue: "skaldekonstens gud" }, 
+{ number: 10, clue: "Jupiters vulkaniska måne" }, 
+{ number: 11, clue: "viktenhet" }, 
+{ number: 13, clue: "har sällan dagens bästa plan" }, 
+{ number: 17, clue: "antal fingrar på båda händerna" }, 
+{ number: 18, clue: "stor samling av kartor" }, 
+{ number: 19, clue: "utvecklingslärans fader" }, 
+{ number: 20, clue: "skogarnas gud" }, 
+{ number: 21, clue: "träskbo med attityd" }, 
+{ number: 23, clue: "Kvinnonamn bildat av Julie utan bokstaven L." }, 
+{ number: 24, clue: "möbeljätte från Småland" }, 
+{ number: 26, clue: "Kemisk symbol för kväve" }, 
+{ number: 28, clue: "Så förkortas doktor ofta i en titel" }, 
+{ number: 30, clue: "korsets favoritbokstav" }, 
 ],
         ai_gen_clues: [
-{ key: "ssfibmm", clue: "Tre hopslagna förkortningar: nazistisk organisation, Folket i Bild och ”med mera”.", confidence: "95" }, 
-{ key: "ih", clue: "Skrämt utrop", confidence: "82" }, 
-{ key: "ice", clue: "Engelskt ord för is", confidence: "100" }, 
-{ key: "r", clue: "Bokstaven före S i alfabetet", confidence: "99" }, 
-{ key: "vd", clue: "Förkortning för verkställande direktör", confidence: "98" }, 
-{ key: "dr", clue: "Så förkortas doktor ofta i en titel", confidence: "98" }, 
-{ key: "iu", clue: "K-popstjärnan Lee Ji-euns två bokstäver långa artistnamn", confidence: "98" }, 
-{ key: "zc", clue: "Bokstaven efter Y följd av bokstaven efter B.", confidence: "96" }, 
-{ key: "lsdeot", clue: "Bokstavsföljden som fås av engelskans ”oldest” enligt ordningen 2–5–3–4–1–6.", confidence: "94" }, 
-{ key: "io", clue: "Jupiters vulkaniska måne", confidence: "98" }, 
-{ key: "etå", clue: "Bokstaven efter D följd av ett litet vattendrag, hopskrivet", confidence: "96" }, 
-{ key: "mt", clue: "Symbol för megaton", confidence: "96" }, 
-{ key: "ob", clue: "Förkortning för obekväm arbetstid", confidence: "99" }, 
-{ key: "re", clue: "Solmisationens tonstavelse efter do", confidence: "98" }, 
-{ key: "a", clue: "Svenska alfabetets första bokstav", confidence: "98" }, 
+{ key: "hh", clue: "Alfabetets åttonde bokstav, skriven två gånger med gemener.", confidence: "98" }, 
+{ key: "iolby", clue: "Ta begynnelsebokstäverna i igelkott, ost, lök, båt och yxa.", confidence: "98" }, 
+{ key: "tegaarldf", clue: "Nio tecken som tillsammans saknar tydlig språklig mening.", confidence: "35" }, 
+{ key: "rar", clue: "Ovanlig", confidence: "95" }, 
+{ key: "juie", clue: "Kvinnonamn bildat av Julie utan bokstaven L.", confidence: "80" }, 
+{ key: "ilebru", clue: "Skriv bokstäverna i, l, e, b, r, u efter varandra i den ordningen", confidence: "99" }, 
+{ key: "es", clue: "Spaniens toppdomän på internet", confidence: "96" }, 
+{ key: "tgeaa", clue: "Det engelska ordet för agat, fast bokstäverna står i fel ordning", confidence: "67" }, 
+{ key: "veog", clue: "Medicinsk förkortning för vertikal elektro-okulografi", confidence: "78" }, 
+{ key: "riu", clue: "Flod på katalanska", confidence: "96" }, 
+{ key: "gns", clue: "G, N och S hopskrivna", confidence: "99" }, 
 ]
     };
 
@@ -444,7 +412,7 @@ verticalClues: [
 // Build the grid
 // ------------------------------
 const grid = document.getElementById("grid");
-grid.style.setProperty("--cols", 14);
+grid.style.setProperty("--cols", 12);
 
 for (let r = 0; r < crossword.rows; r++) {
     for (let c = 0; c < crossword.cols; c++) {
@@ -602,7 +570,7 @@ document.getElementById("validateBtn").addEventListener("click", () => {
         //todo: add some kind of celebration?
 
         const storage = loadStorageSet();
-        storage.add("2026-11-21");
+        storage.add("2026-11-22");
         saveStorageSet(storage);
     }
 });
