@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Daily SE Mini Sunday, 2026-11-22</title>
+    <title>Daily SE Mini Monday, 2026-11-23</title>
 
     <style>
     :root {
@@ -296,7 +296,7 @@
 </head>
 <body>
 
-<h2>Daily SE Mini Sunday, 2026-11-22</h2>
+<h2>Daily SE Mini Monday, 2026-11-23</h2>
 
 <div id="grid"></div>
 
@@ -328,81 +328,43 @@
 // Crossword Data Structure
 // ------------------------------
     const crossword = {
-        	cols: 12, 
-	rows: 12, 
+        	cols: 8, 
+	rows: 8, 
 solution: [ 
-		[null, "1", "2", null, null, "3", "4", "5", "6", null, null, null, ],
-		["7", "h", "h", "8", "9", "h", "ö", "f", "t", "10", "11", null, ],
-		["12", "i", "o", "l", "b", "y", null, "13", "r", "i", "k", null, ],
-		["14", "n", "j", "o", "r", "d", "15", "v", "e", "o", "g", null, ],
-		["16", "k", "17", "r", "a", "r", "18", "a", "l", "19", "20", null, ],
-		[null, "21", "t", "e", "g", "a", "a", "r", "l", "d", "f", null, ],
-		["22", "s", "i", "23", "e", "24", "t", "g", "e", "a", "a", null, ],
-		["25", "h", "o", "j", "26", "i", "l", "e", "b", "r", "u", null, ],
-		["27", "r", "28", "u", "n", "k", "a", "n", "o", "w", "n", null, ],
-		["29", "e", "d", "i", "30", "e", "s", "31", "r", "i", "u", null, ],
-		["32", "k", "r", "e", "t", "a", null, "33", "g", "n", "s", null, ],
-		[null, null, null, null, null, null, null, null, null, null, null, null, ],
+		[null, null, null, null, "1", "2", "3", null, ],
+		[null, null, "4", "5", "s", "e", "n", null, ],
+		[null, "6", "t", "r", "a", "p", "7", null, ],
+		[null, "8", "w", "i", "n", "9", "e", null, ],
+		["10", "j", "i", "s", "s", "e", "s", null, ],
+		["11", "t", "o", "k", "i", "g", "12", null, ],
+		[null, "13", "n", "a", "x", "o", "s", null, ],
+		[null, null, null, null, null, null, null, null, ],
 	],
         horizontalClues: [
-{ number: 7, clue: "Alfabetets åttonde bokstav, skriven två gånger med gemener." }, 
-{ number: 9, clue: "del av skelettet" }, 
-{ number: 12, clue: "Ta begynnelsebokstäverna i igelkott, ost, lök, båt och yxa." }, 
-{ number: 13, clue: "slipper titta på prislappen" }, 
-{ number: 14, clue: "gud över havet" }, 
-{ number: 15, clue: "Medicinsk förkortning för vertikal elektro-okulografi" }, 
-{ number: 16, clue: "Symbolen för kemiskt grundämne kalium" }, 
-{ number: 17, clue: "Ovanlig" }, 
-{ number: 18, clue: "Träd med långa hängande grenar och mjuka blad" }, 
-{ number: 21, clue: "Nio tecken som tillsammans saknar tydlig språklig mening." }, 
-{ number: 22, clue: "Tonstavelsen mellan la och do i den internationella do-re-mi-skalan" }, 
-{ number: 23, clue: "sveriges vanligaste vokal" }, 
-{ number: 24, clue: "Det engelska ordet för agat, fast bokstäverna står i fel ordning" }, 
-{ number: 25, clue: "motorcykel i vardagstal" }, 
-{ number: 26, clue: "Skriv bokstäverna i, l, e, b, r, u efter varandra i den ordningen" }, 
-{ number: 27, clue: "viktigt ljud i motorer" }, 
-{ number: 28, clue: "mannen bakom PUBG började här" }, 
-{ number: 29, clue: "ai ombord på Normandy" }, 
-{ number: 30, clue: "Spaniens toppdomän på internet" }, 
-{ number: 31, clue: "Flod på katalanska" }, 
-{ number: 32, clue: "ö med minotauren" }, 
-{ number: 33, clue: "G, N och S hopskrivna" }, 
+{ number: 5, clue: "nobelpristagare inom utvecklingsekonomi" }, 
+{ number: 6, clue: "hi-hats i mycket hög hastighet" }, 
+{ number: 8, clue: "när allt bara fungerar" }, 
+{ number: 9, clue: "vokalernas arbetshäst" }, 
+{ number: 10, clue: "en reaktion med religiös bakgrund" }, 
+{ number: 11, clue: "inte helt enligt manualen" }, 
+{ number: 13, clue: "ö i grekiska myter" }, 
 ],  
 verticalClues: [
-{ number: 1, clue: "bär vatten" }, 
-{ number: 2, clue: "två hjul och dåliga väderval" }, 
-{ number: 3, clue: "månghövdat monster" }, 
-{ number: 4, clue: "finns i öl" }, 
-{ number: 5, clue: "betecknar frekvens inom fysiken" }, 
-{ number: 6, clue: "Sveriges sydligaste stad" }, 
-{ number: 8, clue: "datas ondskefulle bror" }, 
-{ number: 9, clue: "skaldekonstens gud" }, 
-{ number: 10, clue: "Jupiters vulkaniska måne" }, 
-{ number: 11, clue: "viktenhet" }, 
-{ number: 13, clue: "har sällan dagens bästa plan" }, 
-{ number: 17, clue: "antal fingrar på båda händerna" }, 
-{ number: 18, clue: "stor samling av kartor" }, 
-{ number: 19, clue: "utvecklingslärans fader" }, 
-{ number: 20, clue: "skogarnas gud" }, 
-{ number: 21, clue: "träskbo med attityd" }, 
-{ number: 23, clue: "Kvinnonamn bildat av Julie utan bokstaven L." }, 
-{ number: 24, clue: "möbeljätte från Småland" }, 
-{ number: 26, clue: "Kemisk symbol för kväve" }, 
-{ number: 28, clue: "Så förkortas doktor ofta i en titel" }, 
-{ number: 30, clue: "korsets favoritbokstav" }, 
+{ number: 1, clue: "Franska för ”utan” + romerska siffran nio, ihopskrivet" }, 
+{ number: 2, clue: "eu:s folkvalda församling" }, 
+{ number: 3, clue: "Kemisk symbol för kväve" }, 
+{ number: 4, clue: "Albers hjälpdrivsystem för manuella rullstolar" }, 
+{ number: 5, clue: "svamp som ofta avger mjölksaft" }, 
+{ number: 7, clue: "Spaniens toppdomän på internet" }, 
+{ number: 8, clue: "Juridisk Tidskrift, förkortat" }, 
+{ number: 9, clue: "Latinets ord för «jag»" }, 
+{ number: 12, clue: "slingrig bokstav" }, 
 ],
         ai_gen_clues: [
-{ key: "hh", clue: "Alfabetets åttonde bokstav, skriven två gånger med gemener.", confidence: "98" }, 
-{ key: "iolby", clue: "Ta begynnelsebokstäverna i igelkott, ost, lök, båt och yxa.", confidence: "98" }, 
-{ key: "tegaarldf", clue: "Nio tecken som tillsammans saknar tydlig språklig mening.", confidence: "35" }, 
-{ key: "rar", clue: "Ovanlig", confidence: "95" }, 
-{ key: "juie", clue: "Kvinnonamn bildat av Julie utan bokstaven L.", confidence: "80" }, 
-{ key: "ilebru", clue: "Skriv bokstäverna i, l, e, b, r, u efter varandra i den ordningen", confidence: "99" }, 
-{ key: "es", clue: "Spaniens toppdomän på internet", confidence: "96" }, 
-{ key: "tgeaa", clue: "Det engelska ordet för agat, fast bokstäverna står i fel ordning", confidence: "67" }, 
-{ key: "veog", clue: "Medicinsk förkortning för vertikal elektro-okulografi", confidence: "78" }, 
-{ key: "riu", clue: "Flod på katalanska", confidence: "96" }, 
-{ key: "gns", clue: "G, N och S hopskrivna", confidence: "99" }, 
+{ key: "jt", clue: "Juridisk Tidskrift, förkortat", confidence: "92" }, 
+{ key: "twion", clue: "Albers hjälpdrivsystem för manuella rullstolar", confidence: "92" }, 
+{ key: "sansix", clue: "Franska för ”utan” + romerska siffran nio, ihopskrivet", confidence: "72" }, 
+{ key: "ego", clue: "Latinets ord för «jag»", confidence: "99" }, 
 ]
     };
 
@@ -412,7 +374,7 @@ verticalClues: [
 // Build the grid
 // ------------------------------
 const grid = document.getElementById("grid");
-grid.style.setProperty("--cols", 12);
+grid.style.setProperty("--cols", 8);
 
 for (let r = 0; r < crossword.rows; r++) {
     for (let c = 0; c < crossword.cols; c++) {
@@ -570,7 +532,7 @@ document.getElementById("validateBtn").addEventListener("click", () => {
         //todo: add some kind of celebration?
 
         const storage = loadStorageSet();
-        storage.add("2026-11-22");
+        storage.add("2026-11-23");
         saveStorageSet(storage);
     }
 });
