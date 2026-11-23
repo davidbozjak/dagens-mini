@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Daily SE Mini Monday, 2026-11-23</title>
+    <title>Daily SE Mini Tuesday, 2026-11-24</title>
 
     <style>
     :root {
@@ -206,6 +206,10 @@
         cursor: not-allowed;
     }
 
+    .submit-button.hidden  {
+        display: none;
+    }
+
     /* Accessibility */
 
     input:focus,
@@ -257,6 +261,8 @@
         color: var(--text-secondary);
     }
 
+    /* Archive link */
+
     .archive-link-container {
         text-align: center;
         margin: 16px 0 32px;
@@ -292,6 +298,8 @@
     .archive-link:active {
         transform: translateY(0);
     }
+    
+    /* Clue Pop-up */
 
     .clue-popup {
         position: fixed;
@@ -332,12 +340,12 @@
 
         margin-bottom: 8px;
     }
-
+ 
     </style>
 </head>
 <body>
 
-<h2>Daily SE Mini Monday, 2026-11-23</h2>
+<h2>Daily SE Mini Tuesday, 2026-11-24</h2>
 
 <div id="grid"></div>
 
@@ -372,47 +380,79 @@
 <div id="aiGenClueList" class="component-list collapsed"></div>
 
 <script>
+
+const ADMIN_KEY = "always-42";
+
+const params = new URLSearchParams(window.location.search);
+
+if (params.get("admin") === ADMIN_KEY) {
+    localStorage.setItem("isAdmin", "true");
+    }
+
+const isAdmin =
+    localStorage.getItem("isAdmin") === "true";
+
 // ------------------------------
 // Crossword Data Structure
 // ------------------------------
     const crossword = {
-        	cols: 8, 
-	rows: 8, 
+        	cols: 10, 
+	rows: 10, 
 solution: [ 
-		[null, null, null, null, "1", "2", "3", null, ],
-		[null, null, "4", "5", "s", "e", "n", null, ],
-		[null, "6", "t", "r", "a", "p", "7", null, ],
-		[null, "8", "w", "i", "n", "9", "e", null, ],
-		["10", "j", "i", "s", "s", "e", "s", null, ],
-		["11", "t", "o", "k", "i", "g", "12", null, ],
-		[null, "13", "n", "a", "x", "o", "s", null, ],
-		[null, null, null, null, null, null, null, null, ],
+		[null, "1", "2", null, "3", "4", "5", "6", null, null, ],
+		["7", "k", "r", "8", "e", "l", "v", "a", "9", null, ],
+		[null, "10", "e", "k", "11", "j", "a", "12", "z", null, ],
+		[null, null, "13", "g", "w", "14", "k", "15", "e", null, ],
+		[null, null, null, "16", "e", "m", "e", "b", "b", null, ],
+		[null, null, "17", "18", "s", "o", "n", "a", "r", null, ],
+		[null, "19", "r", "b", "t", "s", "20", "l", "a", null, ],
+		["21", "x", "i", "e", "22", "s", "v", "t", null, null, ],
+		["23", "s", "k", "a", "r", "a", "24", "o", null, null, ],
+		[null, null, null, null, null, null, null, null, null, null, ],
 	],
         horizontalClues: [
-{ number: 5, clue: "nobelpristagare inom utvecklingsekonomi" }, 
-{ number: 6, clue: "hi-hats i mycket hög hastighet" }, 
-{ number: 8, clue: "när allt bara fungerar" }, 
-{ number: 9, clue: "vokalernas arbetshäst" }, 
-{ number: 10, clue: "en reaktion med religiös bakgrund" }, 
-{ number: 11, clue: "inte helt enligt manualen" }, 
-{ number: 13, clue: "ö i grekiska myter" }, 
+{ number: 7, clue: "står efter shoppingrundan", answerLen: "2"}, 
+{ number: 8, clue: "antal kryddor i många klassiska chai-blandningar ungefär", answerLen: "4"}, 
+{ number: 10, clue: "lövträd med ekollon", answerLen: "2"}, 
+{ number: 11, clue: "positiv till förslaget", answerLen: "2"}, 
+{ number: 12, clue: "sista bokstaven före å", answerLen: "1"}, 
+{ number: 13, clue: "trivs bäst med brott och viltkött", answerLen: "2"}, 
+{ number: 14, clue: "Symbolen för kemiskt grundämne kalium", answerLen: "1"}, 
+{ number: 15, clue: "sveriges vanligaste vokal", answerLen: "1"}, 
+{ number: 16, clue: "M:s bokstavsnamn följt av motsatsen till flod, utan mellanrum", answerLen: "5"}, 
+{ number: 18, clue: "system med ljudvågor", answerLen: "5"}, 
+{ number: 19, clue: "Skriv ”arbets” utan vokaler.", answerLen: "4"}, 
+{ number: 20, clue: "Sångstavelse i skalan do, re, mi, fa, sol, …", answerLen: "2"}, 
+{ number: 21, clue: "Kinesiskt efternamn skrivet med pinyin", answerLen: "3"}, 
+{ number: 22, clue: "statligt tv-bolag", answerLen: "3"}, 
+{ number: 23, clue: "västgötsk domkyrkostad", answerLen: "5"}, 
+{ number: 24, clue: "vokal formad som sig själv", answerLen: "1"}, 
 ],  
 verticalClues: [
-{ number: 1, clue: "Franska för ”utan” + romerska siffran nio, ihopskrivet" }, 
-{ number: 2, clue: "eu:s folkvalda församling" }, 
-{ number: 3, clue: "Kemisk symbol för kväve" }, 
-{ number: 4, clue: "Albers hjälpdrivsystem för manuella rullstolar" }, 
-{ number: 5, clue: "svamp som ofta avger mjölksaft" }, 
-{ number: 7, clue: "Spaniens toppdomän på internet" }, 
-{ number: 8, clue: "Juridisk Tidskrift, förkortat" }, 
-{ number: 9, clue: "Latinets ord för «jag»" }, 
-{ number: 12, clue: "slingrig bokstav" }, 
+{ number: 1, clue: "Versalen mellan J och L.", answerLen: "1" }, 
+{ number: 2, clue: "Solmisationens tonstavelse efter do", answerLen: "2" }, 
+{ number: 3, clue: "vokalernas arbetshäst", answerLen: "1" }, 
+{ number: 4, clue: "De två första bokstäverna i ordet för motsatsen till mörker.", answerLen: "2" }, 
+{ number: 5, clue: "motsats till trött", answerLen: "5" }, 
+{ number: 6, clue: "Svenska alfabetets första bokstav", answerLen: "1" }, 
+{ number: 8, clue: "visar hur tungt något är", answerLen: "2" }, 
+{ number: 9, clue: "pyjamas på fyra ben", answerLen: "5" }, 
+{ number: 11, clue: "soldat som steg i graderna", answerLen: "4" }, 
+{ number: 14, clue: "växt i skogen", answerLen: "5" }, 
+{ number: 15, clue: "slähund som blev legend", answerLen: "5" }, 
+{ number: 17, clue: "slipper titta på prislappen", answerLen: "3" }, 
+{ number: 18, clue: "fransk favorit till kött", answerLen: "3" }, 
+{ number: 19, clue: "Engelsk förkortning för extra small", answerLen: "2" }, 
+{ number: 20, clue: "Protagonist i Cyberpunk 2077", answerLen: "1" }, 
+{ number: 22, clue: "viktigt ljud i motorer", answerLen: "1" }, 
 ],
         ai_gen_clues: [
-{ key: "jt", clue: "Juridisk Tidskrift, förkortat", confidence: "92" }, 
-{ key: "twion", clue: "Albers hjälpdrivsystem för manuella rullstolar", confidence: "92" }, 
-{ key: "sansix", clue: "Franska för ”utan” + romerska siffran nio, ihopskrivet", confidence: "72" }, 
-{ key: "ego", clue: "Latinets ord för «jag»", confidence: "99" }, 
+{ key: "xie", clue: "Kinesiskt efternamn skrivet med pinyin", confidence: "92" }, 
+{ key: "k", clue: "Versalen mellan J och L.", confidence: "98" }, 
+{ key: "rbts", clue: "Skriv ”arbets” utan vokaler.", confidence: "95" }, 
+{ key: "emebb", clue: "M:s bokstavsnamn följt av motsatsen till flod, utan mellanrum", confidence: "96" }, 
+{ key: "lj", clue: "De två första bokstäverna i ordet för motsatsen till mörker.", confidence: "98" }, 
+{ key: "la", clue: "Sångstavelse i skalan do, re, mi, fa, sol, …", confidence: "98" }, 
 ]
     };
 
@@ -422,7 +462,7 @@ verticalClues: [
 // Build the grid
 // ------------------------------
 const grid = document.getElementById("grid");
-grid.style.setProperty("--cols", 8);
+grid.style.setProperty("--cols", 10);
 
 for (let r = 0; r < crossword.rows; r++) {
     for (let c = 0; c < crossword.cols; c++) {
@@ -461,14 +501,14 @@ for (let r = 0; r < crossword.rows; r++) {
 const horizontalClueList = document.getElementById("horizontalClueList");
 crossword.horizontalClues.forEach(cl => {
     const li = document.createElement("li");
-    li.textContent = `${cl.number}: ${cl.clue}`;
+    li.textContent = `${cl.number}: ${cl.clue} (${cl.answerLen})`;
     horizontalClueList.appendChild(li);
 });
 
 const verticalClueList = document.getElementById("verticalClueList");
 crossword.verticalClues.forEach(cl => {
     const li = document.createElement("li");
-    li.textContent = `${cl.number}: ${cl.clue}`;
+    li.textContent = `${cl.number}: ${cl.clue}  (${cl.answerLen})`;
     verticalClueList.appendChild(li);
 });
 
@@ -502,10 +542,17 @@ crossword.verticalClues.forEach(cl => {
             `;
 
             const button = component.querySelector(".submit-button");
-
-            button.addEventListener("click", () => {
-                submitClueToDB(button, item);
-            });
+            
+            if (!isAdmin)
+            {
+                button.classList.add("hidden");
+            }
+            else
+            {
+                button.addEventListener("click", () => {
+                    submitClueToDB(button, item);
+                });
+            }
 
             container.appendChild(component);
         });
@@ -586,7 +633,7 @@ document.getElementById("validateBtn").addEventListener("click", () => {
         //todo: add some kind of celebration?
 
         const storage = loadStorageSet();
-        storage.add("2026-11-23");
+        storage.add("2026-11-24");
         saveStorageSet(storage);
     }
 });
@@ -602,6 +649,47 @@ document.addEventListener("DOMContentLoaded", () => {
             : "archive/index.html";
 });
 
+//
+// Clue Pop-up functionality
+//
+
+const popup = document.getElementById("cluePopup");
+popup.addEventListener("click", hideClue);
+
+const popupText = document.getElementById("cluePopupText");
+const popupNumber = document.getElementById("cluePopupNumber");
+
+function showClue(number) {
+
+    let verticalClue = crossword.verticalClues.find(w => w.number == number);
+    let horizontalClue = crossword.horizontalClues.find(w => w.number == number);
+
+    let text;
+    if (verticalClue != null && horizontalClue != null)
+    {
+        text = "<b>Vertical:</b> " + verticalClue.clue + " (" + verticalClue.answerLen + ")<br><b>Horizontal: </b>" + horizontalClue.clue + " (" + horizontalClue.answerLen + ")"; 
+    }
+    else if (verticalClue != null)
+    {
+        text = verticalClue.clue + " (" + verticalClue.answerLen + ")";
+    }
+    else if (horizontalClue != null)
+    {
+        text = horizontalClue.clue + " (" + horizontalClue.answerLen + ")";
+    }
+    else 
+    {
+        throw new Exception("Expecting at least one clue to be avaliable");
+    }
+
+    popupNumber.textContent = number;
+    popupText.innerHTML = text;
+    popup.classList.remove("hidden");
+}
+
+function hideClue() {
+    popup.classList.add("hidden");
+}
 
 // ------------------------------
 // Helper methods
@@ -629,44 +717,6 @@ function saveStorageSet(set) {
 function isNumber(str) {
     const tryNum = Number(str);
     return !isNaN(tryNum);
-}
-
-const popup = document.getElementById("cluePopup");
-popup.addEventListener("click", hideClue);
-
-const popupText = document.getElementById("cluePopupText");
-const popupNumber = document.getElementById("cluePopupNumber");
-
-function showClue(number) {
-
-    let verticalClue = crossword.verticalClues.find(w => w.number == number)?.clue ?? "";
-    let horizontalClue = crossword.horizontalClues.find(w => w.number == number)?.clue ?? "";
-
-    let text;
-    if (verticalClue != "" && horizontalClue != "")
-    {
-        text = "<b>Vertical:</b> " + verticalClue + "<br><b>Horizontal: </b>" + horizontalClue; 
-    }
-    else if (verticalClue != "")
-    {
-        text = verticalClue;
-    }
-    else if (horizontalClue != "")
-    {
-        text = horizontalClue;
-    }
-    else 
-    {
-        throw new Exception("Expecting at least one clue to be avaliable");
-    }
-
-    popupNumber.textContent = number;
-    popupText.innerHTML = text;
-    popup.classList.remove("hidden");
-}
-
-function hideClue() {
-    popup.classList.add("hidden");
 }
 
 </script>
