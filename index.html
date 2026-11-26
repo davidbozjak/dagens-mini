@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Daily SE Mini Thursday, 2026-11-26</title>
+    <title>Daily SE Mini Friday, 2026-11-27</title>
 
     <style>
     :root {
@@ -345,7 +345,7 @@
 </head>
 <body>
 
-<h2>Daily SE Mini Thursday, 2026-11-26</h2>
+<h2>Daily SE Mini Friday, 2026-11-27</h2>
 
 <div id="grid"></div>
 
@@ -396,59 +396,68 @@ const isAdmin =
 // Crossword Data Structure
 // ------------------------------
     const crossword = {
-        	cols: 10, 
-	rows: 10, 
+        	cols: 12, 
+	rows: 12, 
 solution: [ 
-		[null, null, "1", "2", "3", null, null, "4", "5", null, ],
-		[null, "6", "o", "h", "m", "7", "8", "k", "r", null, ],
-		[null, "9", "b", "e", "t", "s", "s", "o", "n", null, ],
-		["10", "m", "a", "l", "11", "l", "u", "n", "a", null, ],
-		[null, "12", "13", "14", "15", "16", "17", "t", "m", null, ],
-		["18", "p", "i", "o", "n", "e", "e", "r", "19", null, ],
-		[null, "20", "c", "a", "r", "l", "t", "o", "n", null, ],
-		[null, "21", "c", "a", "m", "i", "l", "l", "a", null, ],
-		[null, "22", "s", "e", "r", "v", "a", "l", null, null, ],
-		[null, null, null, null, null, null, null, null, null, null, ],
+		[null, "1", "2", "3", null, null, null, null, null, "4", null, null, ],
+		["5", "e", "e", "s", "6", null, null, "7", "8", "m", "9", null, ],
+		[null, "10", "s", "k", "t", null, "11", "f", "g", "o", "k", null, ],
+		[null, null, "12", "a", "a", "13", "k", "a", "i", "r", "o", null, ],
+		[null, "14", "t", "r", "n", "r", "a", "t", "t", "t", "c", null, ],
+		[null, "15", "v", "a", "k", "e", "n", "16", "17", "18", "k", null, ],
+		[null, null, null, "19", "20", "a", "a", "t", "s", null, null, null, ],
+		[null, null, "21", "g", "u", "l", "d", "e", "t", "22", "23", null, ],
+		[null, null, "24", "o", "m", "i", "a", "n", "e", "s", "r", null, ],
+		[null, null, "25", "n", "e", "s", "26", "n", "a", "j", "e", null, ],
+		[null, null, "27", "g", "å", "m", null, "28", "m", "u", "n", null, ],
+		[null, null, null, null, null, null, null, null, null, null, null, null, ],
 	],
         horizontalClues: [
-{ number: 6, clue: "motståndsenhet", answerLen: "3"}, 
-{ number: 8, clue: "står efter shoppingrundan", answerLen: "2"}, 
-{ number: 9, clue: "svenskt spelbolag", answerLen: "7"}, 
-{ number: 10, clue: "sci-fi kapten i Firefly", answerLen: "3"}, 
-{ number: 11, clue: "mångudinna i Rom", answerLen: "4"}, 
-{ number: 17, clue: "Symbolen för rättigheterna på en cool uppfinning", answerLen: "2"}, 
-{ number: 18, clue: "tidig amerikansk rymdsond", answerLen: "7"}, 
-{ number: 20, clue: "inte hjälte, men stjäl ofta scenen", answerLen: "7"}, 
-{ number: 21, clue: "drottning av svenska deckare", answerLen: "7"}, 
-{ number: 22, clue: "fläckig katt på styltor", answerLen: "6"}, 
+{ number: 5, clue: "inre marknad utan fullt medlemskap", answerLen: "3"}, 
+{ number: 8, clue: "Bokstaven före N.", answerLen: "1"}, 
+{ number: 10, clue: "något staten gärna tar del av", answerLen: "3"}, 
+{ number: 11, clue: "Begynnelsebokstäverna i fika, glass, olja och kopp.", answerLen: "4"}, 
+{ number: 12, clue: "Bokstaven a två gånger i följd", answerLen: "2"}, 
+{ number: 13, clue: "Egyptens huvudstad", answerLen: "5"}, 
+{ number: 14, clue: "Nio tecken i en kodföljd: t på plats 1, 6, 7 och 8; r på 2 och 4; n på 3; a på 5; c sist.", answerLen: "9"}, 
+{ number: 15, clue: "motsats till trött", answerLen: "5"}, 
+{ number: 18, clue: "Symbolen för kemiskt grundämne kalium", answerLen: "1"}, 
+{ number: 20, clue: "Två svenska obestämda artiklar följda av begynnelsebokstäverna i «tak» och «sol»; skriv ihop allt.", answerLen: "4"}, 
+{ number: 21, clue: "någon man inte vill tappa bort", answerLen: "6"}, 
+{ number: 24, clue: "Engelsk pluralform av Romany", answerLen: "8"}, 
+{ number: 25, clue: "Nintendos klassiska 8-bitarskonsol (förkortning)", answerLen: "3"}, 
+{ number: 26, clue: "Dialektalt ord för ett nekande svar.", answerLen: "4"}, 
+{ number: 27, clue: "Svenskt verb för att förflytta sig + bokstaven M, hopskrivet", answerLen: "3"}, 
+{ number: 28, clue: "används när man talar", answerLen: "3"}, 
 ],  
 verticalClues: [
-{ number: 1, clue: "Portugisiskt glädjerop", answerLen: "3" }, 
-{ number: 2, clue: "härskarinna över dödsriket", answerLen: "3" }, 
-{ number: 3, clue: "Symbol för megaton", answerLen: "2" }, 
-{ number: 4, clue: "inte främst självbehärskning", answerLen: "8" }, 
-{ number: 5, clue: "Den artonde bokstaven följd av den fjortonde, den första och den trettonde.", answerLen: "4" }, 
-{ number: 7, clue: "Förkortning för Storstockholms Lokaltrafik", answerLen: "2" }, 
-{ number: 8, clue: "Förkortning för Stockholms universitet", answerLen: "2" }, 
-{ number: 9, clue: "Bokstaven före N.", answerLen: "1" }, 
-{ number: 12, clue: "Bokstaven mellan O och Q", answerLen: "1" }, 
-{ number: 13, clue: "Engelsk förkortning för International Children's Continence Society.", answerLen: "4" }, 
-{ number: 14, clue: "Fyra vokaler i följd: först O, sedan två A och sist E.", answerLen: "4" }, 
-{ number: 15, clue: "«Närmare» efter att vokalerna strukits", answerLen: "4" }, 
-{ number: 16, clue: "Elektroniskt liv, med delarna skrivna ihop.", answerLen: "4" }, 
-{ number: 17, clue: "Förkortning för Finlands näringslivs forskningsinstitut", answerLen: "4" }, 
-{ number: 19, clue: "Kemisk förkortning för natrium", answerLen: "2" }, 
+{ number: 1, clue: "sveriges vanligaste vokal", answerLen: "1" }, 
+{ number: 2, clue: "Spaniens toppdomän på internet", answerLen: "2" }, 
+{ number: 3, clue: "västgötsk domkyrkostad", answerLen: "5" }, 
+{ number: 4, clue: "dödens personifikation", answerLen: "4" }, 
+{ number: 6, clue: "lagkamrat som gillar smärta", answerLen: "4" }, 
+{ number: 7, clue: "serveringskärl", answerLen: "3" }, 
+{ number: 8, clue: "sparar kod och relationer", answerLen: "3" }, 
+{ number: 9, clue: "jobbar i kök", answerLen: "4" }, 
+{ number: 11, clue: "Världens näst största land", answerLen: "6" }, 
+{ number: 12, clue: "bildskärm i vardagsrum", answerLen: "2" }, 
+{ number: 13, clue: "världen finns oavsett dig", answerLen: "7" }, 
+{ number: 16, clue: "finns i lödtenn", answerLen: "4" }, 
+{ number: 17, clue: "där reor är farligare än fiender", answerLen: "5" }, 
+{ number: 19, clue: "när ett slag räcker", answerLen: "4" }, 
+{ number: 20, clue: "Universitetsstad norr om Stockholm", answerLen: "4" }, 
+{ number: 22, clue: "antal dagar i veckan", answerLen: "3" }, 
+{ number: 23, clue: "samiskt dragdjur", answerLen: "3" }, 
 ],
         ai_gen_clues: [
-{ key: "oba", clue: "Portugisiskt glädjerop", confidence: "96" }, 
-{ key: "iccs", clue: "Engelsk förkortning för International Children's Continence Society.", confidence: "96" }, 
-{ key: "oaae", clue: "Fyra vokaler i följd: först O, sedan två A och sist E.", confidence: "95" }, 
-{ key: "nrmr", clue: "«Närmare» efter att vokalerna strukits", confidence: "98" }, 
-{ key: "sl", clue: "Förkortning för Storstockholms Lokaltrafik", confidence: "98" }, 
-{ key: "eliv", clue: "Elektroniskt liv, med delarna skrivna ihop.", confidence: "78" }, 
-{ key: "su", clue: "Förkortning för Stockholms universitet", confidence: "98" }, 
-{ key: "etla", clue: "Förkortning för Finlands näringslivs forskningsinstitut", confidence: "82" }, 
-{ key: "rnam", clue: "Den artonde bokstaven följd av den fjortonde, den första och den trettonde.", confidence: "96" }, 
+{ key: "trnratttc", clue: "Nio tecken i en kodföljd: t på plats 1, 6, 7 och 8; r på 2 och 4; n på 3; a på 5; c sist.", confidence: "92" }, 
+{ key: "aa", clue: "Bokstaven a två gånger i följd", confidence: "98" }, 
+{ key: "omianesr", clue: "Engelsk pluralform av Romany", confidence: "94" }, 
+{ key: "nes", clue: "Nintendos klassiska 8-bitarskonsol (förkortning)", confidence: "98" }, 
+{ key: "gåm", clue: "Svenskt verb för att förflytta sig + bokstaven M, hopskrivet", confidence: "96" }, 
+{ key: "aats", clue: "Två svenska obestämda artiklar följda av begynnelsebokstäverna i «tak» och «sol»; skriv ihop allt.", confidence: "96" }, 
+{ key: "fgok", clue: "Begynnelsebokstäverna i fika, glass, olja och kopp.", confidence: "82" }, 
+{ key: "naje", clue: "Dialektalt ord för ett nekande svar.", confidence: "78" }, 
 ]
     };
 
@@ -458,7 +467,7 @@ verticalClues: [
 // Build the grid
 // ------------------------------
 const grid = document.getElementById("grid");
-grid.style.setProperty("--cols", 10);
+grid.style.setProperty("--cols", 12);
 
 for (let r = 0; r < crossword.rows; r++) {
     for (let c = 0; c < crossword.cols; c++) {
@@ -629,7 +638,7 @@ document.getElementById("validateBtn").addEventListener("click", () => {
         //todo: add some kind of celebration?
 
         const storage = loadStorageSet();
-        storage.add("2026-11-26");
+        storage.add("2026-11-27");
         saveStorageSet(storage);
     }
 });
